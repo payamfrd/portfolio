@@ -1,4 +1,5 @@
 import About from "@/components/sectios/About";
+import CTA from "@/components/sectios/CTA";
 import Hero from "@/components/sectios/Hero";
 import Projects from "@/components/sectios/Projects";
 import Skills from "@/components/sectios/Skills";
@@ -10,6 +11,7 @@ export default function Home() {
       <About />
       <Skills />
       <Projects />
+      <CTA />
     </main>
   );
 }

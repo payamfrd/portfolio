@@ -8,7 +8,6 @@ export default function Skills() {
     <section
       id="skills"
       className="
-        scroll-mt-24
         py-32
       "
     >
@@ -36,7 +35,7 @@ export default function Skills() {
             gap-8
           "
         >
-          {skills.map((group,index) => (
+          {skills.map((group, index) => (
             <motion.div
               key={group.category}
               initial={{

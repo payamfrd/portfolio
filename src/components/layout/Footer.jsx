@@ -2,9 +2,16 @@ const Footer = () => {
   return (
     <footer className="border-t border-slate-800 mt-24">
       <div className="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-4 gap-8">
-        <div>
+        <div className="flex flex-col">
           <h3 className="font-bold text-lg">Mohammadmehdi Fard</h3>
           <p className="mt-2 text-slate-400">Front-End Developer</p>
+          <a
+            href="/Fard.Mohammadmehdi.pdf"
+            download
+            className="px-4 py-2 rounded-xl bg-blue-600 w-fit mt-3"
+          >
+            Download Resume
+          </a>
         </div>
         <div>
           <h4 className="font-semibold mb-3">Navigation</h4>

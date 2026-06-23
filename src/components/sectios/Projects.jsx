@@ -11,7 +11,6 @@ export default function Projects() {
     <section
       id="projects"
       className="
-        scroll-mt-24
         py-32
       "
     >

@@ -7,7 +7,6 @@ export default function About() {
     <section
       id="about"
       className="
-        scroll-mt-24
         py-32
       "
     >
