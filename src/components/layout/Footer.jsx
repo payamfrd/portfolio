@@ -39,7 +39,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="border-t border-slate-800 py-6 text-center text-sm text-slate-500">
-        @copy 2026 Mohammadmehdi Fard
+        &copy; 2026 Mohammadmehdi Fard
       </div>
     </footer>
   );
