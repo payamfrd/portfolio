@@ -72,21 +72,22 @@ export default function About() {
                 grid
                 grid-cols-3
                 gap-6
+                max-md:justify-around
               "
             >
-              <div>
+              <div className="max-md:text-center">
                 <h3 className="text-3xl font-bold">10+</h3>
 
                 <p className="text-slate-400">Projects</p>
               </div>
 
-              <div>
+              <div className="max-md:text-center">
                 <h3 className="text-3xl font-bold">3+</h3>
 
                 <p className="text-slate-400">Years</p>
               </div>
 
-              <div>
+              <div className="max-md:text-center">
                 <h3 className="text-3xl font-bold">15+</h3>
 
                 <p className="text-slate-400">Skills</p>
@@ -100,6 +101,8 @@ export default function About() {
                 mt-10
                 flex
                 gap-4
+                max-md:justify-around
+
               "
             >
               <a

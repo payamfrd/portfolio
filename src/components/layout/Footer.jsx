@@ -4,7 +4,7 @@ import { HiOutlineMailOpen } from "react-icons/hi";
 const Footer = () => {
   return (
     <footer className="border-t border-slate-800 mt-24">
-      <div className="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-4 gap-8">
+      <div className="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-4 gap-8 max-md:grid-cols-2">
         <div className="flex flex-col">
           <h3 className="font-bold text-lg">Mohammadmehdi Fard</h3>
           <p className="mt-2 text-slate-400">Front-End Developer</p>
@@ -17,7 +17,7 @@ const Footer = () => {
           </a>
         </div>
         <div>
-          <h4 className="font-semibold mb-3">Navigation</h4>
+          <h4 className="font-bold mb-3">Navigation</h4>
           <ul className="space-y-2">
             <li>
               <a href="#about">About</a>
@@ -31,7 +31,7 @@ const Footer = () => {
           </ul>
         </div>
         <div>
-          <h4 className="font-semibold mb-3">Popular Articls</h4>
+          <h4 className="font-bold mb-3">Popular Articls</h4>
           <ul className="space-y-2">
             <li>Next.js Guide</li>
             <li>React Best Practies</li>
@@ -39,28 +39,44 @@ const Footer = () => {
           </ul>
         </div>
         <div>
-          <h4 className="font-semibold mb-3">Contact</h4>
+          <h4 className="font-bold mb-3">Contact</h4>
           <ul className="space-y-2">
             <li>
-              <a href="" target="_blank" className="flex gap-2">
+              <a
+                href="https://github.com/payamfrd"
+                target="_blank"
+                className="flex gap-2"
+              >
                 <FaGithub size={20} />
                 GitHub
               </a>
             </li>
             <li>
-              <a href="" target="_blank" className="flex gap-2">
+              <a
+                href="https://www.linkedin.com/in/mohammadmehdi-fard-a430a1222"
+                target="_blank"
+                className="flex gap-2"
+              >
                 <FaLinkedin size={20} />
                 Linkedin
               </a>
             </li>
             <li>
-              <a href="" target="_blank" className="flex gap-2">
+              <a
+                href="https://wa.me/+989301801747"
+                target="_blank"
+                className="flex gap-2"
+              >
                 <FaWhatsapp size={20} />
                 WhatsApp
               </a>
             </li>
             <li>
-              <a href="" target="_blank" className="flex gap-2">
+              <a
+                href="mailto:Fard.Mehammadmehdi@Gamail.com"
+                target="_blank"
+                className="flex gap-2"
+              >
                 <HiOutlineMailOpen size={20} />
                 Email
               </a>
