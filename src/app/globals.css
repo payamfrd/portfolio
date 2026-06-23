@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+html.dark {
+  color-scheme: dark;
+}
+
+html.light {
+  color-scheme: light;
+}
+
 html {
   scroll-behavior: smooth;
 }

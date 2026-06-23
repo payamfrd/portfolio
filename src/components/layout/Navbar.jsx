@@ -6,6 +6,9 @@ import { useState } from "react";
 
 import { Menu, X } from "lucide-react";
 
+// Dark/Light mode
+import ThemeToggle from "./ThemeToggle";
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -76,7 +79,6 @@ const Navbar = () => {
       border-slate-700
     "
           />
-
           <div className="hidden md:block">
             <p className="font-semibold">Mohammadmehdi Fard</p>
 
@@ -100,6 +102,9 @@ const Navbar = () => {
           <Link href="/contact" className="hover:text-blue-400 transition">
             Contact
           </Link>
+          <div className="flex items-center gap-4">
+            <ThemeToggle />
+          </div>
         </nav>
       </div>
     </header>
