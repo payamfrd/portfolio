@@ -1,7 +1,31 @@
-const skills = {
-  frontend: ["HTML", "CSS", "Javascript", "React", "Next.js"],
-  network: ["Network +", "CCNA", "MCSA", "Mikrotik"],
-  tools: ["GitHub", "VS Code", "Jira", "Trello"],
-};
+const skills = [
+  {
+    category: "Frontend",
+    items: [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "React",
+      "Next.js",
+      "Tailwind CSS",
+      "Bootstrap",
+    ],
+  },
+
+  {
+    category: "Network",
+    items: ["N+", "CCNA", "MCSA", "Mikrotik"],
+  },
+
+  {
+    category: "Tools",
+    items: ["GitHub", "VS Code", "Figma", "Jira", "Trello"],
+  },
+
+  {
+    category: "Other",
+    items: ["SEO", "Responsive Design", "Performance Optimization"],
+  },
+];
 
 export default skills;
