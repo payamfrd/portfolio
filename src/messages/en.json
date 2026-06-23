@@ -1,4 +1,8 @@
 {
+  "nav_home": "Home",
+  "nav_projects": "Projects",
+  "nav_blogs": "بBlogs",
+  "nav_contant": "Contact",
   "hero_title": "Mohammadmehdi Fard",
   "hero_subtitle": "Front-End Developer"
 }
