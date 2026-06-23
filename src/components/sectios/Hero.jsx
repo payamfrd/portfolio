@@ -40,6 +40,31 @@ export default function Hero() {
           Building modern, responsive and high-performance web applications with
           React and Next.js.
         </motion.p>
+        <div
+          className="
+    mt-8
+    flex
+    justify-center
+    gap-3
+    flex-wrap
+  "
+        >
+          <span className="px-4 py-2 rounded-full border border-slate-700">
+            React
+          </span>
+
+          <span className="px-4 py-2 rounded-full border border-slate-700">
+            Next.js
+          </span>
+
+          <span className="px-4 py-2 rounded-full border border-slate-700">
+            JavaScript
+          </span>
+
+          <span className="px-4 py-2 rounded-full border border-slate-700">
+            SEO
+          </span>
+        </div>
 
         <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
           <a
