@@ -1,5 +1,6 @@
 import About from "@/components/sectios/About";
 import Hero from "@/components/sectios/Hero";
+import Projects from "@/components/sectios/Projects";
 import Skills from "@/components/sectios/Skills";
 
 export default function Home() {
@@ -8,9 +9,7 @@ export default function Home() {
       <Hero />
       <About />
       <Skills />
-      <section id="projects" className="scroll-mt-24 min-h-screen">
-        Projects
-      </section>
+      <Projects />
     </main>
   );
 }
