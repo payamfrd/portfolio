@@ -1,3 +1,6 @@
+import { FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";
+import { HiOutlineMailOpen } from "react-icons/hi";
+
 const Footer = () => {
   return (
     <footer className="border-t border-slate-800 mt-24">
@@ -38,10 +41,30 @@ const Footer = () => {
         <div>
           <h4 className="font-semibold mb-3">Contact</h4>
           <ul className="space-y-2">
-            <li>GitHub</li>
-            <li>Linkedin</li>
-            <li>WhatsApp</li>
-            <li>Email</li>
+            <li>
+              <a href="" target="_blank" className="flex gap-2">
+                <FaGithub size={20} />
+                GitHub
+              </a>
+            </li>
+            <li>
+              <a href="" target="_blank" className="flex gap-2">
+                <FaLinkedin size={20} />
+                Linkedin
+              </a>
+            </li>
+            <li>
+              <a href="" target="_blank" className="flex gap-2">
+                <FaWhatsapp size={20} />
+                WhatsApp
+              </a>
+            </li>
+            <li>
+              <a href="" target="_blank" className="flex gap-2">
+                <HiOutlineMailOpen size={20} />
+                Email
+              </a>
+            </li>
           </ul>
         </div>
       </div>
