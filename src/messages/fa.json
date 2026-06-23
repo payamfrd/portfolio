@@ -1,8 +1,14 @@
 {
-  "nav_home": "خانه",
-  "nav_projects": "پروژه ها",
-  "nav_blogs": "بلاگ",
-  "nav_contant": "همکاری",
-  "hero_title": "محمدمهدی فرد",
-  "hero_subtitle": "توسعه دهنده فرانت اند"
+  "hero": {
+    "title": "توسعه دهنده فرانت اند",
+    "subtitle": "ساخت تجربه های مدرن وب"
+  },
+
+  "nav": {
+    "about": "درباره من",
+    "skills": "مهارت ها",
+    "projects": "پروژه ها",
+    "blog": "بلاگ",
+    "contact": "همکاری"
+  }
 }
