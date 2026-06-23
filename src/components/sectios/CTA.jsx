@@ -59,6 +59,18 @@ export default function CTA() {
             >
               Start Collaboration
             </Link>
+            <a
+              href="https://wa.me/989xxxxxxxxx"
+              target="_blank"
+              className="
+    px-6
+    py-3
+    rounded-xl
+    bg-green-600
+  "
+            >
+              WhatsApp
+            </a>
           </div>
         </div>
       </div>

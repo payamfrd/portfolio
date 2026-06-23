@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import { HiOutlineMailOpen } from "react-icons/hi";
 
@@ -32,14 +33,13 @@ const Footer = () => {
         </div>
         <div>
           <h4 className="font-bold mb-3">Popular Articls</h4>
-          <ul className="space-y-2">
-            <li>Next.js Guide</li>
-            <li>React Best Practies</li>
-            <li>Front-End SEO</li>
+          <ul className="flex flex-col space-y-2">
+            <Link href="/blog/nextjs-seo-guide">Next.js seo Guide</Link>
+            <Link href="/blog/test">Test</Link>
           </ul>
         </div>
         <div>
-          <h4 className="font-bold mb-3">Contact</h4>
+          <h4 className="font-bold mb-3">Connect</h4>
           <ul className="space-y-2">
             <li>
               <a

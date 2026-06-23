@@ -40,6 +40,27 @@ export default function Hero() {
           Building modern, responsive and high-performance web applications with
           React and Next.js.
         </motion.p>
+
+        <div
+          className="
+    mt-4
+    inline-flex
+    items-center
+    gap-2
+    text-green-400
+  "
+        >
+          <span
+            className="
+      w-2
+      h-2
+      rounded-full
+      bg-green-400
+    "
+          />
+          Available for work
+        </div>
+
         <div
           className="
     mt-8
