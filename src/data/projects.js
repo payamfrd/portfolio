@@ -4,7 +4,7 @@ const projects = [
     title: "Portfolio Website",
     description: "Personal Portfolio Website",
     image: "/images/project.jpg",
-    technologies: ["Html/Css", "Javascript", "React", "Next", "Tailwind"],
+    technologies: [ "Javascript", "React", "Tailwind"],
     github: "#",
   },
 ];
