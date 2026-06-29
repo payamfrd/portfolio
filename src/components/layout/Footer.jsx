@@ -128,11 +128,12 @@ hover:text-[var(--accent)]"
           </ul>
         </div>
       </div>
-      <div className="border-t border-[var(--border)] py-6 text-center text-sm text-[var(--muted)]">
+      <div
+        dir="ltr"
+        className=" border-t border-[var(--border)] py-6 text-center text-sm text-[var(--muted)]"
+      >
         &copy; {new Date().getFullYear()}{" "}
-        <span className="text-[var(--accent)]">
-          Mohammadmehdi Fard ❤
-        </span>
+        <span className="text-[var(--accent)]">Mohammadmehdi Fard ❤</span>
       </div>
     </footer>
   );

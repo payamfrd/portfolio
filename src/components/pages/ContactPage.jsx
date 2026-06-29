@@ -1,12 +1,17 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { useParams } from "next/navigation";
 import { useState } from "react";
 import toast from "react-hot-toast";
 
 export default function ContactPage() {
   const [loading, setLoading] = useState(false);
   const t = useTranslations("contact");
+
+  const params = useParams();
+  const locale = params.locale;
+
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -186,6 +191,7 @@ transition
           onChange={formHandler}
           autoComplete="tel"
           aria-label={t("phone")}
+          dir={locale === "fa" ? "rtl" : "ltr"}
           className="
     w-full
     p-4

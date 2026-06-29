@@ -20,7 +20,7 @@ export default function ThemeToggle() {
     <button
       // onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
       onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-      className=" p-2 rounded-xl border border-[var(--border)] bg-[var(--card)] hover:border-[var(--accent)] transition "
+      className=" p-2 rounded-xl border border-[var(--border)] bg-[var(--card)] hover:border-[var(--accent)] hover:bg-[var(--card)] transition "
     >
       {/* {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />} */}
       {resolvedTheme === "dark" ? <Sun size={18} /> : <Moon size={18} />}

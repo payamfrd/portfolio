@@ -87,7 +87,9 @@
     "messageRequired": "Message is required",
     "success": "Message sent successfully",
     "error": "Something went wrong",
-    "tooManyRequests": "Too many requests. Please try again later."
+    "tooManyRequests": "Too many requests. Please try again later.",
+    "send":"Send",
+    "sending":"Sending"
   },
   "errorPage": {
     "label": "Oops!",

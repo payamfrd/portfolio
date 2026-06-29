@@ -115,7 +115,7 @@ border-[var(--border)]
           onClick={() => setIsOpen(false)}
         >
           <Image
-            src="/prof.png"
+            src="/profile.png"
             alt="Mohammadmehdi Fard"
             width={50}
             height={50}
