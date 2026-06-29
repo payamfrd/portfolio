@@ -5,18 +5,17 @@ import { motion } from "framer-motion";
 import projects from "@/data/projects";
 
 import ProjectCard from "@/components/ui/ProjectCard";
+import { useTranslations } from "next-intl";
 
 export default function Projects() {
+  const t = useTranslations("projects");
   return (
-    <section
-      id="projects"
-      className="
-        py-32
-      "
-    >
+    <section className="py-32 section-divider scroll-mt-24">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center">
-          <span className="text-blue-400">My Projects</span>
+          <span className="text-[var(--primary)] font-medium">
+            {t("title")}
+          </span>
 
           <h2
             className="
@@ -26,7 +25,7 @@ export default function Projects() {
               font-bold
             "
           >
-            Featured Work
+            {t("description")}
           </h2>
         </div>
 

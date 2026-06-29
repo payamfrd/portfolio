@@ -1,19 +1,58 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-html.dark {
-  color-scheme: dark;
+html {
+  scroll-behavior: smooth;
 }
 
 html.light {
   color-scheme: light;
 }
 
-html {
-  scroll-behavior: smooth;
+html.dark {
+  color-scheme: dark;
+}
+
+:root {
+  /* Light Theme */
+
+  --bg: #eef2f7;
+
+  --card: #f5f7fb;
+  --border: #cbd5e1;
+
+  --text: #0f172a;
+  --muted: #475569;
+
+  --primary: #2563eb;
+  --accent: #f97316;
+}
+
+html.dark {
+  /* Dark Theme */
+
+  --bg: #020617;
+
+  --card: #0f172a;
+  --border: #1e293b;
+
+  --text: #f8fafc;
+  --muted: #94a3b8;
+
+  --primary: #2563eb;
+  --accent: #f97316;
 }
 
 body {
-  background: #020617;
-  color: #f8fafc;
+  background: var(--bg);
+  color: var(--text);
+}
+
+::selection {
+  background: var(--primary);
+  color: white;
+}
+
+.section-divider {
+  border-bottom: 1px solid var(--border);
 }

@@ -2,18 +2,17 @@
 
 import skills from "@/data/skills";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export default function Skills() {
+  const t = useTranslations("skills");
   return (
-    <section
-      id="skills"
-      className="
-        py-32
-      "
-    >
+    <section className=" py-32 section-divider">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center">
-          <span className="text-blue-400">My Skills</span>
+          <span className="text-[var(--primary)] font-medium">
+            {t("title")}
+          </span>
 
           <h2
             className="
@@ -23,7 +22,7 @@ export default function Skills() {
               font-bold
             "
           >
-            Technologies & Tools
+            {t("description")}
           </h2>
         </div>
 
@@ -53,37 +52,18 @@ export default function Skills() {
                 duration: 0.5,
                 delay: index * 0.25,
               }}
-              className="rounded-3xl border border-slate-800 bg-slate-900/50 p-8 transition duration-300 hover:-translate-y-2 hover:border-blue-500"
+              className=" rounded-3xl border border-[var(--border)] bg-[var(--card)] p-8 transition-all duration-300 hover:-translate-y-2 hover:border-[var(--accent)] hover:shadow-lg
+hover:shadow-orange-500/10"
             >
-              <h3
-                className="
-                  text-2xl
-                  font-bold
-                  mb-6
-                "
-              >
+              <h3 className=" text-2xl font-bold mb-6 text-[var(--primary)]">
                 {group.category}
               </h3>
 
-              <div
-                className="
-                  flex
-                  flex-wrap
-                  gap-3
-                "
-              >
+              <div className=" flex flex-wrap gap-3">
                 {group.items.map((item) => (
                   <span
                     key={item}
-                    className="
-                      px-4
-                      py-2
-                      rounded-full
-                      border
-                      border-slate-700
-                      hover:border-blue-500
-                      transition
-                    "
+                    className=" px-4 py-2 rounded-full bg-[var(--card)] border border-[var(--border)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition"
                   >
                     {item}
                   </span>

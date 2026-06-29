@@ -1,7 +1,12 @@
 {
   "hero": {
     "title": "Frontend Developer",
-    "subtitle": "Building modern web experiences"
+    "subtitle": "Building modern web experiences",
+    "name": "Mohammadmehdi Fard",
+    "downloadResume": "Download Resume",
+    "hireMe": "Contact",
+    "available": "Available for work",
+    "projects": "View Projects"
   },
 
   "nav": {
@@ -9,6 +14,86 @@
     "skills": "Skills",
     "projects": "Projects",
     "blog": "Blog",
-    "contact": "Contact"
+    "contact": "Contact",
+    "name": "Mohammadmehdi Fard",
+    "title": "Frontend Developer"
+  },
+  "about": {
+    "about": "About Me",
+    "projects": "Projects",
+    "year": "Year",
+    "skills": "Skills",
+    "title": "Frontend Developer",
+    "description": "I'm passionate about building modern, fast and responsive web applications using React, Next.js and JavaScript. I enjoy creating clean user experiences and writing maintainable code."
+  },
+  "skills": {
+    "title": "My Skills",
+    "description": "Technologies & Tools",
+    "frontend": "Front End",
+    "network": "Network",
+    "tools": "Tools",
+    "other": "Other"
+  },
+  "projects": {
+    "title": "My Projects",
+    "description": "Featured Work"
+  },
+  "cta": {
+    "title": "Let's Build Something Together",
+    "description": "Open to freelance projects, full-time opportunities and technical collaborations.",
+    "contact": "Start Collaboration",
+    "whatsapp": "Whatsapp"
+  },
+  "footer": {
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "quickLinks": "Quick Links",
+    "popularPosts": "Popular Posts",
+    "connect": "Connect",
+    "downloadResume": "Download Resume",
+    "name": "Mohammadmehdi Fard",
+    "title": "Frontend Developer",
+    "github": "GitHub",
+    "linkedin": "Linkedin",
+    "email": "Email",
+    "whatsapp": "WhatsApp"
+  },
+  "blog": {
+    "allPosts": "All Posts",
+    "title": "Blog",
+    "featuredPosts": "Featured Posts",
+    "desc2": "Related Articles"
+  },
+  "contact": {
+    "name": "Your Name",
+    "email": "Email",
+    "phone": "Phone Number",
+    "company": "Company Name",
+    "invalidEmail": "Please enter a valid email address",
+    "projectType": {
+      "title": "Project Type",
+      "freelance": "Freelance",
+      "partTime": "Part-Time",
+      "fullTime": "Full-Time",
+      "consulting": "Consulting"
+    },
+    "budget": "Budget",
+    "message": "Messages",
+    "messageTooShort": "Message must be at least 10 characters",
+    "whatsapp": "Send Via WhatsApp",
+    "nameRequired": "Name is required",
+    "emailRequired": "Email is required",
+    "messageRequired": "Message is required",
+    "success": "Message sent successfully",
+    "error": "Something went wrong",
+    "tooManyRequests": "Too many requests. Please try again later."
+  },
+  "errorPage": {
+    "label": "Oops!",
+    "title": "Something went wrong",
+    "description": "An unexpected error occurred while loading this page.",
+    "retry": "Try Again",
+    "home": "Back to Home"
   }
 }

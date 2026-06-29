@@ -1,7 +1,12 @@
 {
   "hero": {
     "title": "توسعه دهنده فرانت اند",
-    "subtitle": "ساخت تجربه های مدرن وب"
+    "subtitle": "ساخت تجربه های مدرن وب",
+    "downloadResume": "دانلود رزومه",
+    "hireMe": "همکاری",
+    "available": "آماده همکاری",
+    "name": "محمدمهدی فرد",
+    "projects": "پروژه ها"
   },
 
   "nav": {
@@ -9,6 +14,86 @@
     "skills": "مهارت ها",
     "projects": "پروژه ها",
     "blog": "بلاگ",
-    "contact": "همکاری"
+    "contact": "همکاری",
+    "name": "محمدمهدی فرد",
+    "title": "توسعه دهنده فرانت اند"
+  },
+  "about": {
+    "about": "درباره من",
+    "projects": "پروژه",
+    "year": "سال",
+    "skills": "مهارت",
+    "title": "توسعه دهنده فرانت اند",
+    "description": "من دارای مدرک لیسانس کامپیوتر گرایش فناوری اطلاعات که در حوزه فرانت اند، شبکه و سئو موفق به کسب مهارت شده ام."
+  },
+  "skills": {
+    "title": "مهارت های من",
+    "description": "تکنولوژی ها و ابزار ها",
+    "frontend": "Front End",
+    "network": "شبکه",
+    "tools": "ابزار",
+    "other": "موارد دیگر"
+  },
+  "projects": {
+    "title": "پروژه های من",
+    "description": "کارهای ویژه"
+  },
+  "cta": {
+    "title": "بیا باهم پروژه بسازیم!",
+    "description": "آماده برای همکاری در پروژه هایتان، تمام وقت",
+    "contact": "شروع همکاری",
+    "whatsapp": "واتس اپ"
+  },
+  "footer": {
+    "about": "درباره",
+    "skills": "مهارت ها",
+    "projects": "پروژه ها",
+    "quickLinks": "دسترسی سریع",
+    "popularPosts": "مطالب محبوب",
+    "connect": "ارتباط",
+    "downloadResume": "دانلود رزومه",
+    "name": "محمدمهدی فرد",
+    "title": "توسعه دهنده فرانت اند",
+    "github": "گیت هاب",
+    "linkedin": "لینکدین",
+    "email": "ایمیل",
+    "whatsapp": "واتس اپ"
+  },
+  "blog": {
+    "allPosts": "همه مقالات",
+    "title": "وبلاگ",
+    "featuredPosts": "مقاله های ویژه",
+    "desc2": "مقاله های مرتبط"
+  },
+  "contact": {
+    "name": "نام",
+    "email": "ایمیل",
+    "phone": "شماره تماس",
+    "company": "نام شرکت",
+    "invalidEmail": "ایمیل معتبر وارد کنید",
+    "projectType": {
+      "title": "نوع همکاری",
+      "freelance": "Freelance",
+      "partTime": "پاره وقت",
+      "fullTime": "تمام وقت",
+      "consulting": "Consulting"
+    },
+    "budget": "بودجه",
+    "message": "توضیحات",
+    "messageTooShort": "پیام باید حداقل ۱۰ کاراکتر باشد",
+    "whatsapp": "ارسال از طریق واتس اپ",
+    "nameRequired": "نام الزامی است",
+    "emailRequired": "ایمیل الزامی است",
+    "messageRequired": "پیام الزامی است",
+    "success": "پیام با موفقیت ارسال شد",
+    "error": "خطایی رخ داد",
+    "tooManyRequests": "تعداد درخواست‌ها بیش از حد مجاز است. چند دقیقه بعد دوباره تلاش کنید."
+  },
+  "errorPage": {
+    "label": "خطا",
+    "title": "مشکلی رخ داده است",
+    "description": "هنگام بارگذاری این صفحه خطایی رخ داد.",
+    "retry": "تلاش مجدد",
+    "home": "بازگشت به صفحه اصلی"
   }
 }

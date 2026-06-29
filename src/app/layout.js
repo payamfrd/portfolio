@@ -1,9 +1,4 @@
-import Footer from "@/components/layout/Footer";
-import Navbar from "@/components/layout/Navbar";
-import ThemeProvider from "@/components/layout/ThemeProvider";
-
 import "./globals.css";
-import PersonSchema from "@/components/seo/PersonSchema";
 
 export const metadata = {
   metadataBase: new URL("https://MohammadmehdiFard.com"),
@@ -33,7 +28,12 @@ export const metadata = {
   ],
 
   creator: "Mohammadmehdi Fard",
-
+  alternates: {
+    languages: {
+      en: "https://MohammadmehdiFard.com/en",
+      fa: "https://MohammadmehdiFard.com/fa",
+    },
+  },
   openGraph: {
     type: "website",
 
@@ -47,7 +47,7 @@ export const metadata = {
 
     siteName: "Mohammadmehdi Fard",
 
-    images: ["/og=image.png"],
+    images: [{ url: "/og-image.png" }],
   },
 
   twitter: {
@@ -64,16 +64,5 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  return (
-    <html lang="en" suppressHydrationWarning>
-      <body>
-        <ThemeProvider>
-          <Navbar />
-          {children}
-          <Footer />
-          <PersonSchema />
-        </ThemeProvider>
-      </body>
-    </html>
-  );
+  return <>{children}</>;
 }
