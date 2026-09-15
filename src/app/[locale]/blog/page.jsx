@@ -1,21 +1,103 @@
-import { getAllPosts, getFeaturedPosts } from "@/lib/blog";
-import BlogCard from "@/components/blog/BlogCard";
+import { getAllPosts } from "@/lib/blog";
+import BlogFilters from "@/components/blog/BlogFilters";
+import Breadcrumb from "@/components/ui/Breadcrumb";
 import { getTranslations } from "next-intl/server";
+import { notFound } from "next/navigation";
+
+const SUPPORTED_LOCALES = ["fa", "en"];
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://mohammadmehdifard.ir";
+
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return SUPPORTED_LOCALES.map((locale) => ({
+    locale,
+  }));
+}
 
 export async function generateMetadata({ params }) {
   const { locale } = await params;
 
-  return {
-    title:
-      locale === "fa" ? "بلاگ | محمدمهدی فرد" : "Blog | Mohammadmehdi Fard",
+  if (!SUPPORTED_LOCALES.includes(locale)) {
+    return {};
+  }
 
-    description:
-      locale === "fa"
-        ? "مقالات برنامه نویسی و توسعه وب"
-        : "Programming and Web Development Articles",
+  const isFa = locale === "fa";
+
+  const title = isFa ? "وبلاگ | محمدمهدی فرد" : "Blog | Mohammadmehdi Fard";
+
+  const description = isFa
+    ? "مقالات تخصصی درباره JavaScript، React، Next.js، توسعه وب، برنامه‌نویسی، سئو، شبکه و فناوری اطلاعات."
+    : "Articles about JavaScript, React, Next.js, web development, programming, SEO, networking, and information technology.";
+
+  const canonical = `${SITE_URL}/${locale}/blog`;
+
+  return {
+    title,
+    description,
+
+    keywords: isFa
+      ? [
+          "جاوااسکریپت",
+          "ری‌اکت",
+          "نکست جی‌اس",
+          "توسعه وب",
+          "برنامه نویسی",
+          "سئو",
+          "شبکه",
+          "فناوری اطلاعات",
+          "محمدمهدی فرد",
+          "پیام فرد",
+        ]
+      : [
+          "JavaScript",
+          "React",
+          "Next.js",
+          "Web Development",
+          "Programming",
+          "SEO",
+          "Networking",
+          "Information Technology",
+          "Mohammadmehdi Fard",
+          "Payam Fard",
+        ],
 
     alternates: {
-      canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/${locale}/blog`,
+      canonical,
+      languages: {
+        fa: `${SITE_URL}/fa/blog`,
+        en: `${SITE_URL}/en/blog`,
+        "x-default": `${SITE_URL}/en/blog`,
+      },
+    },
+
+    openGraph: {
+      type: "website",
+      url: canonical,
+      title,
+      description,
+      siteName: "Mohammadmehdi Fard",
+      locale: isFa ? "fa_IR" : "en_US",
+      alternateLocale: isFa ? ["en_US"] : ["fa_IR"],
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
+
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1,
+      },
     },
   };
 }
@@ -23,49 +105,41 @@ export async function generateMetadata({ params }) {
 export default async function BlogPage({ params }) {
   const { locale } = await params;
 
+  if (!SUPPORTED_LOCALES.includes(locale)) {
+    notFound();
+  }
+
   const t = await getTranslations("blog");
-
-  const featured = getFeaturedPosts(locale);
-
-  // All Posts
   const posts = getAllPosts(locale);
 
-  // All Posts Other Than featured
-  // const posts = getAllPosts(locale).filter(
-  //   (post) => !featured.some((featuredPost) => featuredPost.slug === post.slug),
-  // );
-
   return (
-    <main className=" max-w-5xl mx-auto px-6 py-32">
-      <h1 className=" text-5xl font-bold border-b-2 border-b-[var(--border)] pb-5 mb-5">
-        {t("title")}
-      </h1>
+    <main className="mx-auto max-w-7xl px-6 py-32" aria-labelledby="blog-title">
+      <Breadcrumb
+        items={[
+          {
+            label: t("home"),
+            href: `/${locale}`,
+          },
+          {
+            label: t("title"),
+          },
+        ]}
+      />
 
-      {/* Featured Posts */}
-      <section className="mt-12">
-        <h2 className="text-3xl font-bold mb-8 text-[var(--primary)]">
-          {t("featuredPosts")}
-        </h2>
+      <header className="mb-12">
+        <h1
+          id="blog-title"
+          className="border-b-2 border-[var(--border)] pb-5 text-4xl font-bold tracking-tight text-[var(--text)] sm:text-5xl"
+        >
+          {t("title")}
+        </h1>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {featured.map((post) => (
-            <BlogCard key={post.slug} post={post} />
-          ))}
-        </div>
-      </section>
+        <p className="mt-6 max-w-3xl leading-8 text-[var(--muted)]">
+          {t("metaDescription")}
+        </p>
+      </header>
 
-      {/* All Posts */}
-      <section className="mt-24">
-        <h2 className="text-3xl font-bold mb-8">{t("allPosts")}</h2>
-
-        <div className="space-y-8">
-          {posts.length === 0 ? (
-            <p className="text-[var(--muted)]">{t("noPosts")}</p>
-          ) : (
-            posts.map((post) => <BlogCard key={post.slug} post={post} />)
-          )}
-        </div>
-      </section>
+      <BlogFilters posts={posts} />
     </main>
   );
 }

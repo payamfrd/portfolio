@@ -1,7 +1,8 @@
 import Link from "next/link";
+import { getLocale } from "next-intl/server";
 
-export default async function NotFound({ params }) {
-  const { locale } = await params;
+export default async function NotFound() {
+  const locale = await getLocale();
 
   const isFa = locale === "fa";
 

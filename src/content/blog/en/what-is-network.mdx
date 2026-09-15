@@ -1,0 +1,722 @@
+---
+title: "What Is a Computer Network? A Beginner's Guide to IP, Subnet Mask, and MAC Address"
+description: "Learn what a computer network is and understand IP addresses, subnet masks, MAC addresses, and how these core networking concepts work together."
+date: "2026-09-15"
+modified: "2026-09-15"
+featured: true
+cover: "/blog/Network.webp"
+translationKey: "network-basics"
+category: "network"
+tags:
+  - Networking
+  - Computer Networks
+  - IP Address
+  - Subnet Mask
+  - MAC Address
+  - IPv4
+  - Network Basics
+keywords:
+  - what is a computer network
+  - computer networking basics
+  - what is an IP address
+  - what is a subnet mask
+  - what is a MAC address
+  - IP address vs MAC address
+  - networking for beginners
+related:
+  - "hosting-domain"
+  - "javascript"
+---
+
+# What Is a Computer Network? A Beginner's Guide to IP, Subnet Mask, and MAC Address
+
+A computer network is a group of connected devices that can communicate with each other and exchange data.
+
+Computers, laptops, smartphones, servers, printers, network switches, routers, access points, and security cameras can all participate in a network.
+
+Understanding networking starts with a few fundamental concepts:
+
+- What is a network?
+- What is an IP address?
+- What is a Subnet Mask?
+- What is a MAC address?
+- How do these concepts work together?
+
+In this guide, we will build these concepts from the ground up and connect them to a simple real-world network example.
+
+## What Is a Computer Network?
+
+A computer network is a system in which two or more devices are connected so they can communicate and exchange information.
+
+A network may use wired connections such as Ethernet, wireless technologies such as Wi-Fi, or a combination of both.
+
+For example, a small office network may contain:
+
+- Computers
+- Laptops
+- Network printers
+- IP cameras
+- A network switch
+- A wireless access point
+- A router
+- Servers or network storage
+
+The devices do not simply need a physical or wireless connection. They also need addressing and communication rules that allow them to identify destinations and exchange data correctly.
+
+## Why Do We Need Computer Networks?
+
+Networks make it possible for devices and users to share resources and communicate efficiently.
+
+Common examples include:
+
+- Sharing files between computers
+- Accessing a shared printer
+- Connecting to the Internet
+- Communicating with servers
+- Monitoring IP cameras
+- Accessing network storage
+- Running business applications
+- Connecting multiple offices together
+
+The Internet itself is not a single network. It is a huge collection of interconnected networks that communicate using standardized protocols.
+
+## Types of Computer Networks
+
+There are many ways to classify networks.
+
+### LAN — Local Area Network
+
+A LAN covers a relatively small geographic area such as:
+
+- A home
+- An office
+- A school
+- A laboratory
+
+A typical office Ethernet network is an example of a LAN.
+
+### WLAN — Wireless LAN
+
+A WLAN is a local network that uses wireless communication, most commonly Wi-Fi.
+
+For example, when your laptop connects to your home Wi-Fi router, it becomes part of a WLAN.
+
+### WAN — Wide Area Network
+
+A WAN connects networks across larger geographic areas.
+
+The Internet is the most well-known example of a global interconnected network.
+
+---
+
+## How Do Devices Communicate on a Network?
+
+To understand network communication, we need to distinguish between different types of addressing.
+
+Two of the most important addresses are:
+
+- IP address
+- MAC address
+
+They operate at different layers and solve different problems.
+
+The **IP address** is mainly used for logical addressing and routing.
+
+The **MAC address** is mainly used for local Layer 2 delivery on technologies such as Ethernet and Wi-Fi.
+
+A third concept, the **Subnet Mask**, helps determine which part of an IPv4 address represents the network and which part represents the host.
+
+---
+
+## What Is an IP Address?
+
+An IP address is a logical network-layer address used to identify a network interface or endpoint within an IP network.
+
+In simple terms, an IP address helps a network determine where IP packets should go.
+
+For example:
+
+```text
+192.168.1.20
+```
+
+This is an example of an IPv4 address.
+
+### IPv4
+
+IPv4 addresses are 32 bits long and are normally written as four decimal numbers separated by dots.
+
+For example:
+
+```text
+192.168.1.20
+```
+
+Each section is called an octet because it represents 8 bits.
+
+Therefore:
+
+```text
+8 + 8 + 8 + 8 = 32 bits
+```
+
+An IPv4 address contains two conceptual parts:
+
+- Network portion
+- Host portion
+
+The exact boundary between these portions depends on the subnet mask or CIDR prefix.
+
+### IPv6
+
+IPv6 was designed as the successor to IPv4 and uses 128-bit addresses, providing a dramatically larger address space.
+
+An IPv6 address can look like:
+
+```text
+2001:db8:1234:5678::10
+```
+
+IPv6 is important because the number of devices and Internet-connected systems has grown far beyond what the original IPv4 address space was designed to accommodate.
+
+This article focuses primarily on IPv4 because it provides the clearest way to understand IP addresses, subnet masks, and basic subnetting.
+
+---
+
+## Public and Private IP Addresses
+
+IPv4 addresses can be used in different contexts.
+
+### Public IP Address
+
+A public IP address is globally routable on the Internet.
+
+A public address can be assigned to an Internet-facing router, server, or other service depending on the network architecture and provider.
+
+### Private IP Address
+
+Private IPv4 addresses are intended for internal networks and are not globally routed across the public Internet.
+
+The private IPv4 ranges defined by RFC 1918 are:
+
+```text
+10.0.0.0/8
+172.16.0.0/12
+192.168.0.0/16
+```
+
+For example:
+
+```text
+192.168.1.20
+```
+
+is a private IPv4 address.
+
+A typical home or office network can therefore use addresses such as:
+
+```text
+192.168.1.10
+192.168.1.20
+192.168.1.30
+```
+
+while the router may use a separate public IP address to communicate with the Internet.
+
+---
+
+## What Is a Subnet Mask?
+
+A Subnet Mask is an IPv4 value used to determine which portion of an IPv4 address represents the network and which portion represents the host.
+
+For example:
+
+```text
+IP Address:  192.168.1.20
+Subnet Mask: 255.255.255.0
+```
+
+The same network can also be written using CIDR notation:
+
+```text
+192.168.1.20/24
+```
+
+Here `/24` means that the first 24 bits belong to the network portion.
+
+The remaining 8 bits are available for host addressing.
+
+### Understanding a /24 Network
+
+Consider:
+
+```text
+192.168.1.20/24
+```
+
+The subnet mask is:
+
+```text
+255.255.255.0
+```
+
+The network address is:
+
+```text
+192.168.1.0
+```
+
+The broadcast address is:
+
+```text
+192.168.1.255
+```
+
+The commonly usable host range is:
+
+```text
+192.168.1.1
+```
+
+through:
+
+```text
+192.168.1.254
+```
+
+So a basic `/24` IPv4 subnet contains 256 total addresses, with the traditional network and broadcast addresses reserved for their respective purposes.
+
+---
+
+## Why Is the Subnet Mask Important?
+
+Without knowing the network boundary, a device cannot correctly determine whether a destination is local or belongs to another network.
+
+For example, suppose a computer has:
+
+```text
+IP Address:  192.168.1.20
+Subnet Mask: 255.255.255.0
+```
+
+and wants to communicate with:
+
+```text
+192.168.1.50
+```
+
+Both addresses belong to:
+
+```text
+192.168.1.0/24
+```
+
+So the destination is on the same IPv4 subnet.
+
+But if the destination is:
+
+```text
+192.168.2.50
+```
+
+the destination belongs to another subnet.
+
+In that case, the computer normally sends the packet toward its default gateway so a router can forward it toward the destination network.
+
+---
+
+## What Is Subnetting?
+
+Subnetting means dividing a larger IP network into smaller logical networks.
+
+For example, instead of using one large network for every department in an organization, an administrator can create separate subnets for:
+
+- Employees
+- Servers
+- IP cameras
+- Guest Wi-Fi
+- Management
+- Printers
+
+This can improve:
+
+- Address management
+- Network organization
+- Broadcast-domain design
+- Traffic control
+- Security architecture
+- Troubleshooting
+
+Subnetting is one of the most important skills for network administrators and CCNA-level networking.
+
+---
+
+## What Is a MAC Address?
+
+A MAC address is a Layer 2 address associated with a network interface and is commonly used for local frame delivery on Ethernet and Wi-Fi networks.
+
+Common MAC addresses are 48 bits long and are normally displayed as six hexadecimal octets.
+
+For example:
+
+```text
+00:1A:2B:3C:4D:5E
+```
+
+or:
+
+```text
+00-1A-2B-3C-4D-5E
+```
+
+IEEE documentation describes EUI-48 identifiers as 48-bit identifiers commonly used as MAC addresses in IEEE 802 networks.
+
+A MAC address belongs to a network interface rather than representing the logical location of the device in the same way an IP address does.
+
+A computer may have multiple network interfaces, such as:
+
+- Ethernet
+- Wi-Fi
+- Bluetooth
+
+and each interface can have its own addressing information.
+
+---
+
+## What Does a Network Switch Do With MAC Addresses?
+
+A network switch operates primarily at Layer 2 and uses MAC addresses to make local forwarding decisions.
+
+For example, imagine a switch has learned:
+
+```text
+00:1A:2B:3C:4D:5E → Port 1
+00:1A:2B:3C:4D:6F → Port 2
+```
+
+If a frame arrives for:
+
+```text
+00:1A:2B:3C:4D:6F
+```
+
+the switch can forward the frame toward the appropriate port instead of sending it everywhere.
+
+This learned information is commonly represented in a MAC address table.
+
+---
+
+## IP Address vs MAC Address
+
+These two addresses are related, but they are not the same thing.
+
+### IP Address
+
+- Logical network-layer addressing
+- Used for communication across IP networks
+- Routers use IP information for forwarding decisions
+- IPv4 uses 32-bit addresses
+- IPv6 uses 128-bit addresses
+- Can change depending on network configuration
+
+### MAC Address
+
+- Layer 2 addressing
+- Used for local frame delivery
+- Commonly 48 bits on Ethernet and Wi-Fi
+- Switches use MAC addresses for local forwarding
+- Associated with a network interface
+- Can be locally administered in some cases
+
+The most important idea is:
+
+> **IP helps identify where a packet needs to go at the network layer, while MAC addressing helps deliver frames across the local Layer 2 network.**
+
+---
+
+## How Do IP and MAC Addresses Work Together?
+
+A common example is communication between two IPv4 devices on the same local network.
+
+Suppose:
+
+```text
+Computer A
+IP: 192.168.1.20
+MAC: 00:1A:2B:3C:4D:5E
+```
+
+needs to communicate with:
+
+```text
+Computer B
+IP: 192.168.1.50
+MAC: 00:1A:2B:3C:4D:6F
+```
+
+Because both devices are on the same `/24` subnet, Computer A needs the Layer 2 address associated with:
+
+```text
+192.168.1.50
+```
+
+In IPv4 networks, **ARP (Address Resolution Protocol)** is commonly used to resolve an IPv4 address to a MAC address on the local network.
+
+The simplified process is:
+
+```text
+IPv4 destination
+      ↓
+192.168.1.50
+      ↓
+ARP resolution
+      ↓
+00:1A:2B:3C:4D:6F
+      ↓
+Ethernet frame
+```
+
+For IPv6, Neighbor Discovery is used instead of ARP.
+
+---
+
+## What Happens When the Destination Is on Another Network?
+
+Now suppose:
+
+```text
+Computer A:
+192.168.1.20/24
+```
+
+wants to communicate with:
+
+```text
+Server:
+192.168.2.50/24
+```
+
+The destination is not on the local subnet.
+
+Computer A therefore does not normally send the Ethernet frame directly to the server's MAC address.
+
+Instead, it sends the traffic toward its default gateway.
+
+For example:
+
+```text
+Computer
+192.168.1.20
+      ↓
+Default Gateway
+192.168.1.1
+      ↓
+Router
+      ↓
+192.168.2.0/24
+      ↓
+Server
+192.168.2.50
+```
+
+This is where the distinction between Layer 2 and Layer 3 becomes especially important.
+
+The MAC address is used for the current local link, while the IP destination allows routers to make decisions about where the packet should ultimately go.
+
+---
+
+## A Simple Real-World Office Network Example
+
+Imagine a small office with the following devices:
+
+```text
+Router:
+192.168.10.1
+
+PC:
+192.168.10.10
+
+Laptop:
+192.168.10.20
+
+IP Camera:
+192.168.10.30
+
+Network:
+192.168.10.0/24
+
+Subnet Mask:
+255.255.255.0
+```
+
+Each device has its own network interface and MAC address.
+
+The switch connects the devices at Layer 2.
+
+The router provides Layer 3 connectivity and can act as the default gateway.
+
+A simplified architecture looks like this:
+
+```text
+                 Internet
+                    |
+                 Router
+              192.168.10.1
+                    |
+                 Switch
+          __________|___________
+         |          |           |
+        PC        Laptop      IP Camera
+   .10.10        .10.20        .10.30
+```
+
+All three endpoints are in the same:
+
+```text
+192.168.10.0/24
+```
+
+network.
+
+---
+
+## IP Address, Subnet Mask, and MAC Address in One Picture
+
+The easiest way to remember the three concepts is:
+
+```text
+Network
+   |
+   +-- IP Address
+   |      Logical address
+   |
+   +-- Subnet Mask
+   |      Defines the IPv4 network boundary
+   |
+   +-- MAC Address
+          Layer 2 interface address
+```
+
+Another useful mental model is:
+
+```text
+IP Address
+"What network endpoint am I communicating with?"
+
+Subnet Mask
+"Is that endpoint on my local subnet?"
+
+MAC Address
+"Which Layer 2 interface should receive this local frame?"
+```
+
+This is a simplified learning model, but it provides a strong foundation for understanding how IPv4 networks operate.
+
+---
+
+## Common Beginner Mistakes
+
+### Confusing IP and MAC Addresses
+
+An IP address and a MAC address have different purposes and operate at different layers.
+
+### Thinking the Subnet Mask Is Another Device Address
+
+The subnet mask is not the address of a computer.
+
+It defines how an IPv4 address is divided into network and host portions.
+
+### Assuming Every 192.168.x.x Address Is the Same Network
+
+For example:
+
+```text
+192.168.1.10/24
+```
+
+and:
+
+```text
+192.168.2.10/24
+```
+
+are different IPv4 subnets.
+
+The subnet prefix matters.
+
+### Thinking MAC Addresses Are Used for Internet Routing
+
+Routers do not use a device's MAC address as the global routing address across the Internet.
+
+MAC addressing is primarily relevant to the local Layer 2 segment.
+
+### Ignoring the Default Gateway
+
+A device can communicate with local hosts without routing, but communication with other IP networks normally requires a route, commonly through a default gateway.
+
+---
+
+## Why Are These Concepts Important for Network Administrators?
+
+Understanding these concepts is essential for troubleshooting real network problems.
+
+For example, if a computer cannot access a server, a network administrator may check:
+
+1. Is the network interface connected?
+2. Does the device have a valid IP address?
+3. Is the subnet mask correct?
+4. Is the destination on the same subnet?
+5. Is the default gateway configured correctly?
+6. Can the device resolve the destination at Layer 2?
+7. Is the switch forwarding frames correctly?
+8. Is the router routing traffic correctly?
+9. Is a firewall blocking the traffic?
+
+This is why IP addressing and subnetting are fundamental skills for network administrators and networking certifications such as CCNA.
+
+---
+
+## What Should You Learn After This Article?
+
+Once you understand networks, IP addresses, subnet masks, and MAC addresses, the next useful concepts are:
+
+- Default Gateway
+- DNS
+- DHCP
+- ARP
+- IPv4 Subnetting
+- CIDR
+- VLAN
+- Switches
+- Routers
+- NAT
+- TCP and UDP
+- OSI Model
+- Network Security
+- IPv6
+
+A good learning path is to understand the concepts first and then practice them using real network scenarios.
+
+---
+
+## Conclusion
+
+A computer network is a system of connected devices that communicate and exchange data.
+
+Four fundamental concepts provide a strong starting point:
+
+- **Network:** the connected system that allows devices to communicate.
+- **IP Address:** a logical address used for communication and routing at the network layer.
+- **Subnet Mask:** defines the network and host portions of an IPv4 address.
+- **MAC Address:** a Layer 2 interface address used for local frame delivery.
+
+Once these concepts become clear, more advanced topics such as subnetting, VLANs, routing, DHCP, DNS, NAT, and network security become much easier to understand.
+
+The key is not simply memorizing definitions. You should understand how these concepts work together when a real packet moves through a network.
+
+## Continue Learning
+
+If you are learning web development and IT together, these articles can help you connect networking concepts with the technologies used in modern web applications:
+
+- [What Is Web Hosting? What Is a Domain Name?](/en/blog/what-is-hosting-and-domain)
+- [What Is JavaScript? A Complete Beginner's Guide](/en/blog/what-is-javascript)

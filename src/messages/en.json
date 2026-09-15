@@ -1,42 +1,394 @@
 {
   "hero": {
-    "title": "Frontend Developer",
-    "subtitle": "Building modern web experiences",
-    "name": "Mohammadmehdi Fard",
+    "title": "IT Specialist | Network & Front-End Developer",
+    "subtitle": "IT Specialist and Front-End Developer with hands-on experience in network infrastructure, IT and software support, IP CCTV systems, and modern web development using JavaScript, React.js, Next.js and Tailwind CSS.",
+    "name": "Mohammadmehdi",
+    "lastName": "Fard",
     "downloadResume": "Download Resume",
-    "hireMe": "Contact",
-    "available": "Available for work",
-    "projects": "View Projects"
+    "hireMe": "Contact Me",
+    "projects": "View Projects",
+    "resume": "Resume",
+    "viewResume": "View Resume",
+    "openPdf": "Open PDF",
+    "available": "Open to new opportunities & technical collaborations",
+    "year": "Years Experience",
+    "javascript": "JavaScript",
+    "react": "React",
+    "nextjs": "Next.js",
+    "itNetwork": "IT & Network",
+    "cctv": "CCTV IP",
+    "ccna": "CCNA",
+    "skill": "Technical Skills"
   },
-
   "nav": {
     "about": "About",
     "skills": "Skills",
+    "experience": "Experience",
     "projects": "Projects",
+    "certificates": "Certificates",
     "blog": "Blog",
     "contact": "Contact",
     "name": "Mohammadmehdi Fard",
-    "title": "Frontend Developer"
+    "title": "Frontend Developer",
+    "openMenu": "Open navigation menu",
+    "closeMenu": "Close navigation menu",
+    "logoIcon": "HomePage",
+    "featuredProjects": "Featured Projects",
+    "allProjects": "All Projects"
+  },
+
+  "theme": {
+    "light": "Switch to light mode",
+    "dark": "Switch to dark mode"
+  },
+
+  "language": {
+    "english": "Switch language to English",
+    "persian": "Switch language to Persian"
   },
   "about": {
     "about": "About Me",
+    "title": "IT Specialist & Front-End Developer",
+    "frontend": "Front-End Development",
+    "network": "IT & Network",
+    "specialties": "Areas of Expertise",
+    "description": "I'm Mohammadmehdi Fard (Payam Fard), an IT Specialist and Front-End Developer with a B.Sc. in Computer Engineering – Information Technology. I have hands-on experience in modern web development using JavaScript, React.js, Next.js and Tailwind CSS, as well as IT support, network infrastructure, rack equipment, switch configuration, VLAN implementation and IP-based CCTV systems. My experience in technical, industrial and project-based environments has strengthened my skills in software development, troubleshooting, problem-solving and practical technical implementation.",
     "projects": "Projects",
-    "year": "Year",
-    "skills": "Skills",
-    "title": "Frontend Developer",
-    "description": "I'm passionate about building modern, fast and responsive web applications using React, Next.js and JavaScript. I enjoy creating clean user experiences and writing maintainable code."
+    "year": "Years Experience",
+    "skills": "Technologies",
+    "socialLinks": "Social Links",
+    "resume": "Resume"
   },
   "skills": {
-    "title": "My Skills",
-    "description": "Technologies & Tools",
-    "frontend": "Front End",
-    "network": "Network",
+    "title": "Skills",
+    "description": "Technical Skills & Expertise",
+    "frontend": "Front-End Development",
+    "network": "Networking & IT",
     "tools": "Tools",
-    "other": "Other"
+    "other": "Other Skills"
+  },
+  "experience": {
+    "label": "Experience",
+    "title": "Professional Experience"
   },
   "projects": {
     "title": "My Projects",
-    "description": "Featured Work"
+    "descProject": "All Projects",
+    "description": "Featured Work",
+    "allProjectsDescription": "A collection of my frontend and web development projects.",
+    "viewAll": "View All Projects",
+    "details": "Project Details",
+    "featured": "Featured",
+    "features": "Features",
+    "technologies": "Technologies",
+    "home": "Home",
+    "relatedProjects": "Related Projects",
+    "noProjectsFound": "No projects found",
+    "searchProjects": "Search projects...",
+    "github": "GitHub",
+    "liveDemo": "Live Demo",
+    "filtersLabel": "Project categories",
+
+    "status": {
+      "completed": "Completed",
+      "inProgress": "In Progress"
+    },
+
+    "filters": {
+      "all": "All"
+    },
+
+    "categories": {
+      "corporateWebsite": "Corporate Website",
+      "networkAndSecurity": "Network & Security",
+      "portfolio": "Portfolio",
+      "ecommerce": "E-Commerce",
+      "finance": "Finance",
+      "dashboard": "Dashboard",
+      "personalProject": "Personal Project",
+      "crudApplication": "CRUD Application",
+      "uiComponent": "UI Component"
+    }
+  },
+
+  "projectsData": {
+    "padamo-website": {
+      "title": "Padamo Website",
+      "description": "Corporate website developed with React.js focusing on SEO, performance and responsive design.",
+      "fullDescription": "Padamo is a corporate website developed with modern frontend technologies. The project focused on responsive design, search engine optimization, fast loading and providing a smooth user experience across different devices."
+    },
+
+    "pasargad-100-drilling-rig-cctv": {
+      "title": "Pasargad 100 Drilling Rig CCTV & Network Project",
+      "description": "Industrial CCTV and network infrastructure project for the Pasargad 100 drilling rig in the Persian Gulf.",
+      "fullDescription": "An industrial network and CCTV infrastructure project for the Pasargad 100 drilling rig in the Persian Gulf. The project included network cabling, rack equipment setup, switch configuration, VLAN configuration, Hikvision and Bosch CCTV configuration, system testing and troubleshooting."
+    },
+
+    "prata-technology": {
+      "title": "Prata Technology Website",
+      "description": "Corporate website for Prata Technology built with React.js and modern UI principles.",
+      "fullDescription": "Prata Technology is a corporate website developed to provide a professional online presence for the company. The project focused on responsive layouts, SEO-friendly implementation, performance optimization and a modern user interface."
+    },
+
+    "shiraz-startup-factory": {
+      "title": "Shiraz Startup Factory",
+      "description": "Frontend implementation and UI development for Shiraz Startup Factory.",
+      "fullDescription": "Participated in the frontend implementation of the Shiraz Startup Factory website with a focus on responsive design, modern interfaces, landing pages and interactive user interface components."
+    },
+
+    "personal-portfolio": {
+      "title": "Personal Portfolio",
+      "description": "Multilingual portfolio website developed with Next.js App Router.",
+      "fullDescription": "A modern personal portfolio website built with Next.js, React.js and Tailwind CSS. The project includes multilingual support with next-intl, dark mode, responsive design, SEO optimization, project showcase and blog support."
+    },
+
+    "ecommerce-website": {
+      "title": "E-Commerce Website",
+      "description": "Online store interface with product pages and responsive layouts.",
+      "fullDescription": "An e-commerce interface focused on product presentation, responsive layouts and creating a smooth shopping experience across different screen sizes."
+    },
+
+    "crypto-website": {
+      "title": "Crypto Website",
+      "description": "Cryptocurrency website with a modern interface and market information presentation.",
+      "fullDescription": "A cryptocurrency-focused web interface designed to present digital asset and market information through a modern, responsive and interactive user experience."
+    },
+
+    "mask-detection-dashboard": {
+      "title": "Mask Detection Dashboard",
+      "description": "Dashboard interface for monitoring mask detection systems.",
+      "fullDescription": "A dashboard interface designed for monitoring and managing mask detection systems with an emphasis on data presentation, responsive layouts and user-friendly interaction."
+    },
+
+    "car-gallery": {
+      "title": "Car Gallery",
+      "description": "Car showcase website built with Next.js.",
+      "fullDescription": "A personal project developed with Next.js to showcase a collection of cars using a modern gallery layout, responsive design and fast navigation."
+    },
+
+    "nextjs-admin-panel": {
+      "title": "Admin Panel",
+      "description": "Modern admin dashboard developed using Next.js.",
+      "fullDescription": "A modern administrative dashboard built with Next.js and React.js, focusing on reusable components, responsive design, clean UI and data visualization."
+    },
+
+    "store-project": {
+      "title": "Store Project",
+      "description": "Store project with product pages and responsive UI.",
+      "fullDescription": "An e-commerce practice project developed to improve frontend architecture, reusable components, responsive layouts and product-focused interfaces."
+    },
+
+    "contacts-app": {
+      "title": "Contacts App",
+      "description": "Contact management application with CRUD operations.",
+      "fullDescription": "A contact management application featuring create, update, delete and search functionality with responsive UI, state management and form validation."
+    },
+
+    "autocomplete-input": {
+      "title": "Autocomplete Input",
+      "description": "Reusable autocomplete input component with inline suggestions.",
+      "fullDescription": "A reusable React autocomplete component with inline suggestions and keyboard navigation designed for a smooth and accessible user input experience."
+    },
+
+    "features": {
+      "responsive-design": "Responsive Design",
+      "seo-optimization": "SEO Optimization",
+      "fast-loading": "Fast Loading Speed",
+      "modern-ui": "Modern UI",
+      "mobile-friendly": "Mobile Friendly",
+      "corporate-design": "Corporate Design",
+      "seo-friendly": "SEO Friendly",
+      "responsive-layout": "Responsive Layout",
+      "performance-optimization": "Performance Optimization",
+      "cross-browser-support": "Cross-Browser Support",
+      "modern-interface": "Modern Interface",
+      "landing-pages": "Landing Pages",
+      "interactive-components": "Interactive Components",
+      "dark-mode": "Dark Mode",
+      "multilingual-support": "Multilingual Support",
+      "seo-optimized": "SEO Optimized",
+      "project-showcase": "Project Showcase",
+      "blog-support": "Blog Support",
+      "product-listing": "Product Listing",
+      "shopping-experience": "Shopping Experience",
+      "market-information": "Market Information",
+      "modern-dashboard": "Modern Dashboard",
+      "interactive-ui": "Interactive UI",
+      "dashboard-ui": "Dashboard UI",
+      "data-monitoring": "Data Monitoring",
+      "responsive-interface": "Responsive Interface",
+      "user-friendly-design": "User-Friendly Design",
+      "gallery-layout": "Gallery Layout",
+      "fast-navigation": "Fast Navigation",
+      "reusable-components": "Reusable Components",
+      "data-visualization": "Data Visualization",
+      "product-pages": "Product Pages",
+      "crud-operations": "CRUD Operations",
+      "state-management": "State Management",
+      "responsive-ui": "Responsive UI",
+      "form-validation": "Form Validation",
+      "autocomplete": "Autocomplete",
+      "reusable-component": "Reusable Component",
+      "keyboard-navigation": "Keyboard Navigation",
+      "inline-suggestions": "Inline Suggestions",
+      "network-cabling": "Network Cabling",
+      "rack-equipment": "Rack Equipment",
+      "switch-configuration": "Switch Configuration",
+      "vlan-configuration": "VLAN Configuration",
+      "cctv-installation": "CCTV Installation",
+      "cctv-configuration": "CCTV Configuration",
+      "system-testing": "System Testing",
+      "network-troubleshooting": "Network Troubleshooting"
+    }
+  },
+  "certificates": {
+    "subtitle": "Certifications",
+    "title": "Courses & Certifications",
+    "earned": "{count} Courses & Certifications",
+    "verify": "View Certificate",
+    "open": "View course or certificate details",
+    "close": "Close",
+    "featured": "Featured",
+    "year": "Year",
+    "issuer": "Training Provider",
+    "filterLabel": "Filter courses and certifications",
+    "noImage": "No certificate image available",
+    "showMore": "Show More",
+    "showLess": "Show Less",
+    "noCertificatesFound": "No courses or certifications found",
+    "filters": {
+      "all": "All",
+      "frontend": "Front-End",
+      "network": "Network",
+      "other": "Other"
+    }
+  },
+  "certificatesData": {
+    "network-plus": {
+      "title": "Network+",
+      "issuer": "JavanGroup",
+      "year": "2023",
+      "description": "Network fundamentals, infrastructure, and essential networking concepts."
+    },
+
+    "ccna": {
+      "title": "CCNA",
+      "issuer": "JavanGroup",
+      "year": "2023",
+      "description": "Cisco networking fundamentals, routing, switching, and network configuration."
+    },
+
+    "mcsa": {
+      "title": "MCSA",
+      "issuer": "JavanGroup",
+      "year": "2023",
+      "description": "Microsoft server administration and Windows Server infrastructure."
+    },
+
+    "mtcna": {
+      "title": "MTCNA",
+      "issuer": "JavanGroup",
+      "year": "2023",
+      "description": "MikroTik Certified Network Associate training focused on MikroTik networking fundamentals and configuration."
+    },
+
+    "mtcre": {
+      "title": "MTCRE",
+      "issuer": "Hamid Zarin Comprehensive Networking Course",
+      "year": "2026",
+      "description": "MikroTik Certified Routing Engineer training focused on advanced routing and network engineering concepts."
+    },
+
+    "network-specialist": {
+      "title": "Network Specialist",
+      "issuer": "JavanGroup",
+      "year": "2024",
+      "description": "Network administration, infrastructure, troubleshooting, and essential IT networking skills."
+    },
+
+    "a-plus": {
+      "title": "A+",
+      "issuer": "Hamid Zarin Comprehensive Networking Course",
+      "year": "2026",
+      "description": "Computer hardware, operating systems, troubleshooting, and IT support fundamentals."
+    },
+
+    "server-plus": {
+      "title": "Server+",
+      "issuer": "Hamid Zarin Comprehensive Networking Course",
+      "year": "2026",
+      "description": "Server hardware, installation, administration, maintenance, and troubleshooting fundamentals."
+    },
+
+    "html-css": {
+      "title": "HTML & CSS",
+      "issuer": "Faradars",
+      "year": "2020",
+      "description": "Web fundamentals, semantic HTML, CSS, and responsive web layouts."
+    },
+
+    "bootstrap": {
+      "title": "Bootstrap",
+      "issuer": "Toplearn",
+      "year": "2021",
+      "description": "Responsive web development using the Bootstrap framework."
+    },
+
+    "javascript": {
+      "title": "JavaScript",
+      "issuer": "Toplearn / Botostart",
+      "year": "2021 / 2025",
+      "description": "JavaScript development, modern programming concepts, and core language fundamentals."
+    },
+
+    "react": {
+      "title": "React",
+      "issuer": "Toplearn / Botostart",
+      "year": "2021 / 2025",
+      "description": "React development, component-based architecture, and modern front-end application development."
+    },
+
+    "nextjs": {
+      "title": "Next.js",
+      "issuer": "Botostart",
+      "year": "2022 / 2025",
+      "description": "Modern web development with Next.js, server-side rendering, routing, optimization, and full-stack capabilities."
+    },
+
+    "tailwind": {
+      "title": "Tailwind CSS",
+      "issuer": "Botostart",
+      "year": "2023",
+      "description": "Modern responsive interface development using the Tailwind CSS utility-first framework."
+    },
+
+    "seo": {
+      "title": "SEO",
+      "issuer": "SeoLab",
+      "year": "2021",
+      "description": "Search engine optimization, technical SEO, and website optimization."
+    },
+
+    "wordpress": {
+      "title": "WordPress",
+      "issuer": "Faradars",
+      "year": "2021",
+      "description": "WordPress website development, management, customization, and essential optimization techniques."
+    },
+
+    "cctv": {
+      "title": "CCTV",
+      "issuer": "Meysam Jokar CCTV Troubleshooting Course",
+      "year": "2026",
+      "description": "CCTV inspection, troubleshooting, fault diagnosis, and basic surveillance system maintenance."
+    },
+
+    "icdl": {
+      "title": "ICDL",
+      "issuer": "Technical and Vocational Training Organization",
+      "year": "2023",
+      "description": "Essential computer skills, office applications, digital literacy, and practical computer usage."
+    }
   },
   "cta": {
     "title": "Let's Build Something Together",
@@ -45,24 +397,43 @@
     "whatsapp": "Whatsapp"
   },
   "footer": {
-    "about": "About",
-    "skills": "Skills",
-    "projects": "Projects",
+    "name": "Mohammadmehdi Fard",
+    "title": "Network & IT Specialist | Front-End Developer",
+    "downloadResume": "Download Resume",
     "quickLinks": "Quick Links",
     "popularPosts": "Popular Posts",
     "connect": "Connect",
-    "downloadResume": "Download Resume",
-    "name": "Mohammadmehdi Fard",
-    "title": "Frontend Developer",
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
     "github": "GitHub",
-    "linkedin": "Linkedin",
+    "linkedin": "LinkedIn",
+    "whatsapp": "WhatsApp",
     "email": "Email",
-    "whatsapp": "WhatsApp"
+    "noPopularPosts": "No popular posts found"
   },
   "blog": {
-    "allPosts": "All Posts",
     "title": "Blog",
+    "metaTitle": "Blog | Mohammadmehdi Fard",
+    "metaDescription": "Articles about JavaScript, React, Next.js, web development, programming, SEO, and IT.",
+    "allPosts": "All Posts",
     "featuredPosts": "Featured Posts",
+    "relatedPosts": "Related Posts",
+    "searchPosts": "Search articles...",
+    "noPostsFound": "No posts found",
+    "tryAnotherSearch": "Try another search term.",
+    "results": "results",
+    "home": "Home",
+    "published": "Published",
+    "updated": "Updated",
+    "readingTime": "Reading time",
+    "minutes": "min",
+    "views": "views",
+    "tags": "Tags",
+    "category": "Category",
+    "previous": "Previous",
+    "next": "Next",
+    "page": "Page",
     "desc2": "Related Articles"
   },
   "contact": {
@@ -88,8 +459,8 @@
     "success": "Message sent successfully",
     "error": "Something went wrong",
     "tooManyRequests": "Too many requests. Please try again later.",
-    "send":"Send",
-    "sending":"Sending"
+    "send": "Send",
+    "sending": "Sending"
   },
   "errorPage": {
     "label": "Oops!",
@@ -97,5 +468,9 @@
     "description": "An unexpected error occurred while loading this page.",
     "retry": "Try Again",
     "home": "Back to Home"
+  },
+  "pagination": {
+    "showingProjects": "Projects",
+    "of": "of"
   }
 }

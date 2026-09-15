@@ -1,49 +1,70 @@
 import { getAllPosts } from "@/lib/blog";
 
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://mohammadmehdifard.ir";
+
 export default function sitemap() {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
-
-  const enPosts = getAllPosts("en");
-  const faPosts = getAllPosts("fa");
-
-  const postUrls = [...enPosts, ...faPosts].map((post) => ({
-    url: `${siteUrl}/${post.locale}/blog/${post.slug}`,
-    lastModified: new Date(post.date),
-    priority: 0.7,
-  }));
-
-  return [
+  const pages = [
     {
-      url: `${siteUrl}/fa`,
+      url: `${SITE_URL}/fa`,
       lastModified: new Date(),
+      changeFrequency: "monthly",
       priority: 1,
     },
+
     {
-      url: `${siteUrl}/en`,
+      url: `${SITE_URL}/en`,
       lastModified: new Date(),
+      changeFrequency: "monthly",
       priority: 1,
     },
+
     {
-      url: `${siteUrl}/fa/blog`,
+      url: `${SITE_URL}/fa/blog`,
       lastModified: new Date(),
-      priority: 0.8,
-    },
-    {
-      url: `${siteUrl}/en/blog`,
-      lastModified: new Date(),
-      priority: 0.8,
-    },
-    {
-      url: `${siteUrl}/fa/contact`,
-      lastModified: new Date(),
-      priority: 0.8,
-    },
-    {
-      url: `${siteUrl}/en/contact`,
-      lastModified: new Date(),
-      priority: 0.8,
+      changeFrequency: "weekly",
+      priority: 0.9,
     },
 
-    ...postUrls,
+    {
+      url: `${SITE_URL}/en/blog`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+
+    {
+      url: `${SITE_URL}/fa/contact`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+
+    {
+      url: `${SITE_URL}/en/contact`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
   ];
+
+  const postUrls = [];
+
+  for (const locale of ["fa", "en"]) {
+    const posts = getAllPosts(locale);
+
+    for (const post of posts) {
+      postUrls.push({
+        url: `${SITE_URL}/${locale}/blog/${post.slug}`,
+
+        lastModified: new Date(post.modified || post.date || Date.now()),
+
+        changeFrequency: "monthly",
+
+        priority: post.featured ? 0.8 : 0.7,
+      });
+    }
+  }
+
+  return [...pages, ...postUrls];
 }

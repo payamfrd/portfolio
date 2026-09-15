@@ -3,6 +3,7 @@
 
 html {
   scroll-behavior: smooth;
+  background: var(--bg);
 }
 
 html.light {
@@ -16,16 +17,18 @@ html.dark {
 :root {
   /* Light Theme */
 
-  --bg: #eef2f7;
+  --bg: #cdd1d5;
 
   --card: #f5f7fb;
-  --border: #cbd5e1;
+  --border: #96999f;
 
   --text: #0f172a;
   --muted: #475569;
 
   --primary: #2563eb;
   --accent: #f97316;
+
+  --github: #181717;
 }
 
 html.dark {
@@ -41,11 +44,16 @@ html.dark {
 
   --primary: #2563eb;
   --accent: #f97316;
+
+  --github: #f0f0f0;
 }
 
 body {
+  min-height: 100vh;
   background: var(--bg);
   color: var(--text);
+  position: relative;
+  isolation: isolate;
 }
 
 ::selection {
@@ -54,5 +62,275 @@ body {
 }
 
 .section-divider {
-  border-bottom: 1px solid var(--border);
+  border-bottom: 2px solid var(--border);
+}
+
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* =========================================
+   GLOBAL SITE BACKGROUND
+========================================= */
+
+/* =========================================
+   BACKGROUND ROOT
+========================================= */
+
+.site-background {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: -10;
+
+  background:
+    radial-gradient(
+      circle at 8% 10%,
+      color-mix(in srgb, var(--primary) 12%, transparent),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 92% 88%,
+      color-mix(in srgb, var(--accent) 10%, transparent),
+      transparent 32%
+    ),
+    var(--bg);
+}
+
+/* =========================================
+   GRID
+========================================= */
+
+.site-background::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      to right,
+      color-mix(in srgb, var(--primary) 50%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--primary) 50%, transparent) 1px,
+      transparent 1px
+    );
+
+  background-size: 52px 52px;
+
+  opacity: 0.16;
+}
+
+/* =========================================
+   VIGNETTE
+========================================= */
+
+.site-background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: radial-gradient(
+    ellipse at center,
+    transparent 30%,
+    color-mix(in srgb, var(--bg) 35%, transparent) 100%
+  );
+
+  opacity: 0.55;
+}
+
+/* =========================================
+   AMBIENT GLOWS
+========================================= */
+
+.background-blob {
+  position: absolute;
+  border-radius: 9999px;
+  pointer-events: none;
+
+  filter: blur(110px);
+
+  will-change: transform;
+}
+
+.background-blob-primary {
+  width: 520px;
+  height: 520px;
+
+  top: -220px;
+  left: -180px;
+
+  background: var(--primary);
+  opacity: 0.13;
+}
+
+.background-blob-accent {
+  width: 480px;
+  height: 480px;
+
+  right: -180px;
+  bottom: -200px;
+
+  background: var(--accent);
+  opacity: 0.11;
+}
+
+/* =========================================
+   LIGHT THEME
+========================================= */
+
+html:not(.dark) .site-background {
+  background:
+    radial-gradient(
+      circle at 8% 10%,
+      color-mix(in srgb, var(--primary) 9%, transparent),
+      transparent 30rem
+    ),
+    radial-gradient(
+      circle at 92% 88%,
+      color-mix(in srgb, var(--accent) 7%, transparent),
+      transparent 32rem
+    ),
+    var(--bg);
+}
+
+html:not(.dark) .site-background::before {
+  opacity: 0.2;
+}
+
+html:not(.dark) .site-background::after {
+  opacity: 0.3;
+}
+
+html:not(.dark) .background-blob-primary {
+  opacity: 0.065;
+}
+
+html:not(.dark) .background-blob-accent {
+  opacity: 0.055;
+}
+
+/* =========================================
+   DARK THEME
+========================================= */
+
+html.dark .site-background {
+  background:
+    radial-gradient(
+      circle at 8% 10%,
+      color-mix(in srgb, var(--primary) 15%, transparent),
+      transparent 30rem
+    ),
+    radial-gradient(
+      circle at 92% 88%,
+      color-mix(in srgb, var(--accent) 12%, transparent),
+      transparent 32rem
+    ),
+    var(--bg);
+}
+
+html.dark .site-background::before {
+  opacity: 0.26;
+}
+
+html.dark .site-background::after {
+  opacity: 0.2;
+}
+
+html.dark .background-blob-primary {
+  opacity: 0.15;
+}
+
+html.dark .background-blob-accent {
+  opacity: 0.13;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+  .site-background::before {
+    background-size: 36px 36px;
+    opacity: 0.16;
+  }
+
+  .background-blob-primary {
+    width: 300px;
+    height: 300px;
+
+    top: -120px;
+    left: -120px;
+
+    filter: blur(80px);
+  }
+
+  .background-blob-accent {
+    width: 280px;
+    height: 280px;
+
+    right: -120px;
+    bottom: -120px;
+
+    filter: blur(80px);
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .background-blob {
+    will-change: auto;
+  }
+}
+
+/* =========================================
+   SOCIAL LINKS
+========================================= */
+
+.social-link {
+  color: var(--social-color);
+  border-color: color-mix(
+    in srgb,
+    var(--social-color) 35%,
+    var(--border)
+  );
+
+  background: color-mix(
+    in srgb,
+    var(--social-color) 8%,
+    var(--card)
+  );
+}
+
+.social-link:hover {
+  color: var(--social-color);
+
+  border-color: var(--social-color);
+
+  background: color-mix(
+    in srgb,
+    var(--social-color) 15%,
+    var(--card)
+  );
+
+  box-shadow:
+    0 8px 24px
+    color-mix(
+      in srgb,
+      var(--social-color) 12%,
+      transparent
+    );
 }

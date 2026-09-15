@@ -1,0 +1,283 @@
+---
+title: "What Is an Algorithm? A Practical Guide for Programmers"
+description: "Learn what algorithms are, how they solve programming problems, how to evaluate their efficiency, and why algorithmic thinking matters in software development."
+date: "2026-06-14"
+modified: "2026-09-15"
+featured: false
+cover: "/blog/Algorithm.webp"
+translationKey: "algorithm"
+category: "programming"
+tags:
+  - "Algorithms"
+  - "Programming"
+  - "JavaScript"
+  - "Software Development"
+  - "Data Structures"
+keywords:
+  - "what is an algorithm"
+  - "algorithm in programming"
+  - "algorithmic thinking"
+  - "JavaScript algorithms"
+  - "data structures and algorithms"
+related:
+  - "javascript"
+  - "react"
+---
+
+## What Is an Algorithm?
+
+An algorithm is a **well-defined sequence of steps used to solve a problem or perform a task**.
+
+Almost every software application relies on algorithms. Searching for a product, sorting a list of users, validating a form, calculating a price, or displaying content based on a condition all involve logical processes that can be described as algorithms.
+
+A simple way to understand an algorithm is to think of it as a recipe.
+
+A recipe tells you:
+
+1. What you need.
+2. What steps to follow.
+3. In what order to perform those steps.
+4. What result you should get.
+
+An algorithm works in a similar way, but its instructions are designed to process data and solve computational problems.
+
+## Why Are Algorithms Important?
+
+Writing code is not only about knowing a programming language. A good developer also needs to know **how to approach a problem**.
+
+Two programs can produce the same result while having very different performance.
+
+For example, one solution may process a list once, while another solution may repeatedly scan the same list. Both can be correct, but the first one can be significantly more efficient as the amount of data grows.
+
+Good algorithms can help developers:
+
+- Improve application performance
+- Reduce unnecessary computation
+- Reduce memory usage
+- Handle larger datasets
+- Make code easier to reason about
+- Reduce logical errors
+- Build more scalable applications
+
+Algorithmic thinking is therefore useful even when you are working with frameworks such as React or Next.js.
+
+## Characteristics of a Good Algorithm
+
+A practical algorithm should have clear and well-defined behavior.
+
+Important characteristics include:
+
+### 1. Well-Defined Steps
+
+Each step should be clear enough that its behavior can be understood and implemented.
+
+### 2. A Clear Input and Output
+
+An algorithm normally receives some input and produces an output or a defined result.
+
+For example:
+
+```js
+function findMaximum(numbers) {
+  // input: an array of numbers
+  // output: the largest number
+}
+```
+
+### 3. Termination
+
+An algorithm designed to solve a finite task should eventually finish instead of running forever.
+
+### 4. Correctness
+
+For valid input, the algorithm should produce the expected result.
+
+### 5. Efficiency
+
+A good solution should avoid unnecessary computation and excessive memory usage.
+
+Efficiency becomes especially important when applications work with large amounts of data.
+
+## A Simple JavaScript Example
+
+Imagine that we need to find the largest number in an array.
+
+A straightforward algorithm is:
+
+1. Assume the first number is the largest.
+2. Compare it with each remaining number.
+3. If a larger number is found, update the current maximum.
+4. Return the maximum value.
+
+In JavaScript:
+
+```js
+function findMaximum(numbers) {
+  if (numbers.length === 0) {
+    return undefined;
+  }
+
+  let maximum = numbers[0];
+
+  for (const number of numbers) {
+    if (number > maximum) {
+      maximum = number;
+    }
+  }
+
+  return maximum;
+}
+
+const numbers = [12, 7, 25, 4, 18];
+
+console.log(findMaximum(numbers));
+// 25
+```
+
+The algorithm is simple, but it demonstrates an important idea: **breaking a problem into a sequence of logical steps**.
+
+## Understanding Time Complexity
+
+One of the most important concepts when evaluating algorithms is **time complexity**.
+
+Time complexity describes how the amount of work performed by an algorithm grows as the size of its input increases.
+
+For the `findMaximum` example, every element is checked once.
+
+If the array contains `n` elements, the algorithm performs approximately `n` comparisons.
+
+Therefore, its time complexity is:
+
+**O(n)**
+
+This means the amount of work grows approximately linearly with the number of input elements.
+
+For example:
+
+- 10 elements → roughly 10 iterations
+- 1,000 elements → roughly 1,000 iterations
+- 1,000,000 elements → roughly 1,000,000 iterations
+
+This is generally much more scalable than repeatedly scanning the same data unnecessarily.
+
+## Common Big O Complexities
+
+Some common complexity classes include:
+
+#### Complexity | General idea
+
+- O(1) | Constant time
+- O(log n) | Logarithmic growth
+- O(n) | Linear growth
+- O(n log n) | Common in efficient sorting algorithms
+- O(n²) | Quadratic growth
+- O(2ⁿ) | Exponential growth
+
+Big O notation does not tell us the exact execution time of a program. Instead, it helps us understand how an algorithm scales as its input becomes larger.
+
+## Algorithms and Data Structures
+
+Algorithms and data structures are closely connected.
+
+A **data structure** determines how data is organized and stored, while an **algorithm** defines how that data is processed.
+
+For example, common data structures include:
+
+- Arrays
+- Objects
+- Sets
+- Maps
+- Stacks
+- Queues
+- Linked lists
+- Trees
+- Graphs
+
+Choosing an appropriate data structure can make an algorithm significantly more efficient.
+
+For example, searching for a value in an unsorted array may require checking many elements, while an appropriate data structure or indexing strategy can make certain lookup operations much faster.
+
+This is why the subject is commonly studied as **Data Structures and Algorithms (DSA)**.
+
+## Algorithms in Front-End Development
+
+Algorithms are not limited to academic programming exercises.
+
+Front-end developers use algorithmic thinking in many real-world situations.
+
+For example:
+
+- Filtering products
+- Sorting search results
+- Searching through user lists
+- Removing duplicate values
+- Validating form data
+- Processing API responses
+- Transforming arrays of objects
+- Building pagination logic
+- Managing application state
+- Optimizing rendering-related computations
+
+Consider filtering products by price:
+
+```js
+const products = [
+  { name: "Laptop", price: 1200 },
+  { name: "Keyboard", price: 80 },
+  { name: "Monitor", price: 350 },
+];
+
+const affordableProducts = products.filter((product) => product.price < 500);
+```
+
+The code is short, but it still represents an algorithmic process: inspect the collection, apply a condition, and construct the resulting collection.
+
+## Algorithm vs. Programming Language
+
+An algorithm is not the same thing as a programming language.
+
+The same algorithm can be implemented using different languages.
+
+For example, the algorithm for finding the largest number can be implemented in:
+
+- JavaScript
+- Python
+- Java
+- C#
+- C++
+- Go
+
+The programming language provides the syntax and tools for implementation. The algorithm describes the underlying logic used to solve the problem.
+
+This distinction is important because strong programming skills are not limited to memorizing language syntax.
+
+## How to Improve Algorithmic Thinking
+
+You can improve algorithmic thinking by practicing a repeatable problem-solving process:
+
+1. Clearly define the problem.
+2. Identify the required input and expected output.
+3. Break the problem into smaller steps.
+4. Consider edge cases.
+5. Write a simple solution first.
+6. Test the solution with different inputs.
+7. Analyze its time and space complexity.
+8. Look for unnecessary operations.
+9. Improve the solution when optimization is actually needed.
+
+This approach is useful when working on both small JavaScript projects and larger applications.
+
+## Conclusion
+
+Algorithms are one of the foundations of software development.
+
+They provide a structured way to transform input into a desired result and help developers reason about correctness, performance, and scalability.
+
+You do not need to start with advanced mathematical algorithms. Learning to break a problem into clear steps, implement those steps, test them, and analyze their efficiency is already a strong foundation.
+
+As your programming experience grows, understanding algorithms and data structures becomes increasingly valuable for writing efficient and maintainable software.
+
+## Related Articles
+
+- [What Is JavaScript?](/en/blog/what-is-javascript)
+- [What Is React?](/en/blog/what-is-react-js)

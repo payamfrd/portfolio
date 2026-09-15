@@ -1,0 +1,438 @@
+---
+title: "What Is JavaScript? A Complete Beginner's Guide"
+description: "Learn what JavaScript is, how it works, where it runs, and why it is one of the core technologies used in modern web development."
+date: "2026-07-15"
+modified: "2026-09-15"
+featured: true
+cover: "/blog/javascript.webp"
+translationKey: "javascript"
+category: "programming"
+tags:
+  - JavaScript
+  - programming
+  - web development
+  - frontend
+  - ECMAScript
+  - Node.js
+  - DOM
+keywords:
+  - what is JavaScript
+  - JavaScript tutorial
+  - JavaScript for beginners
+  - learn JavaScript
+  - JavaScript programming
+  - JavaScript frontend
+  - ECMAScript
+  - Node.js
+related:
+  - "algorithm"
+  - "react"
+  - "nextjs"
+  - "hosting-domain"
+---
+
+# What Is JavaScript? A Complete Beginner's Guide
+
+JavaScript is a general-purpose programming language that is best known for adding behavior and interactivity to websites.
+
+It is one of the core technologies of the modern web:
+
+- **HTML** defines the structure and content of a webpage.
+- **CSS** controls its presentation and visual appearance.
+- **JavaScript** adds behavior, logic, and interactivity.
+
+JavaScript is not limited to browsers. It can also run in other environments, including server-side runtimes such as Node.js.
+
+In this article, you'll learn what JavaScript is, how it fits into web development, some of its fundamental features, what the DOM is, and how JavaScript is used outside the browser.
+
+## What Is JavaScript?
+
+JavaScript is a high-level, dynamically typed, multi-paradigm programming language.
+
+It was originally designed to make web pages interactive. Today, it supports a wide range of programming styles, including imperative, functional, and object-oriented programming.
+
+JavaScript itself is standardized as **ECMAScript**. The ECMAScript specification defines the core language, while environments such as browsers and Node.js provide additional APIs that allow JavaScript programs to interact with the outside world.
+
+In a browser, JavaScript can interact with web APIs such as the DOM, respond to user actions, update page content, communicate with servers, and perform many other tasks.
+
+## Why Is JavaScript Important?
+
+JavaScript is important because it enables developers to build interactive and dynamic applications for the web.
+
+For example, JavaScript can be used to implement:
+
+- Interactive navigation menus
+- Form validation
+- Dynamic content updates
+- Client-side application logic
+- Communication with APIs
+- Interactive dashboards
+- Real-time user interfaces
+- Browser-based applications
+
+Modern JavaScript development also includes a large ecosystem of frameworks, libraries, runtimes, build tools, and development platforms.
+
+## A Brief History of JavaScript
+
+JavaScript was created by **Brendan Eich at Netscape** and first appeared in Netscape Navigator 2.0 in 1995.
+
+The language went through several early names during its development before becoming known as JavaScript.
+
+Despite the similar names, **JavaScript and Java are different programming languages** with different designs, syntax, and execution models.
+
+In 1996, work began to standardize JavaScript through Ecma International. The first edition of the ECMAScript standard, ECMA-262, was approved in June 1997.
+
+Today, ECMAScript continues to evolve as the standardized specification for the core JavaScript language.
+
+## Key Features of JavaScript
+
+### Dynamically Typed
+
+JavaScript is dynamically typed. Variables do not require a type declaration such as `string` or `number` before they are used.
+
+For example:
+
+```javascript
+let value = 25;
+value = "Hello";
+```
+
+The variable can refer to values of different types during the program's execution.
+
+### First-Class Functions
+
+Functions are first-class values in JavaScript.
+
+This means functions can be:
+
+- Stored in variables
+- Passed as arguments
+- Returned from other functions
+- Stored inside objects and arrays
+
+For example:
+
+```javascript
+function greet(name) {
+  return `Hello ${name}`;
+}
+
+const message = greet;
+console.log(message("Payam"));
+```
+
+### Multi-Paradigm
+
+JavaScript supports multiple programming paradigms.
+
+You can write JavaScript using:
+
+- Imperative programming
+- Functional programming
+- Object-oriented programming
+- Event-driven programming
+
+This flexibility is one reason JavaScript can be used for many different types of applications.
+
+### Prototype-Based Object Model
+
+JavaScript uses a prototype-based object model.
+
+Modern JavaScript also provides `class` syntax, but JavaScript classes are built on top of the language's prototype-based inheritance model.
+
+This distinction becomes important when learning advanced JavaScript concepts such as inheritance and the prototype chain.
+
+### Large Ecosystem
+
+JavaScript has a large ecosystem of libraries, frameworks, runtimes, package managers, and development tools.
+
+Popular technologies in the JavaScript ecosystem include:
+
+- React
+- Next.js
+- Node.js
+- Vue.js
+- Angular
+- Express
+
+These technologies serve different purposes and are not all part of the JavaScript language itself.
+
+## A Simple JavaScript Example
+
+Here is a basic function:
+
+```javascript
+function greet(name) {
+  return `Hello ${name}`;
+}
+
+console.log(greet("Payam"));
+```
+
+Output:
+
+```text
+Hello Payam
+```
+
+The function receives a value called `name`, creates a string using a template literal, and returns the result.
+
+## Variables in JavaScript
+
+Variables are used to store references to values.
+
+Modern JavaScript primarily uses:
+
+- `let`
+- `const`
+
+Example:
+
+```javascript
+let name = "Payam";
+const age = 25;
+```
+
+Use `const` when the variable binding should not be reassigned, and use `let` when reassignment is required.
+
+JavaScript also has the older `var` declaration, but modern code generally prefers `let` and `const`.
+
+## Data Types in JavaScript
+
+JavaScript has several built-in data types.
+
+Common examples include:
+
+```javascript
+let name = "Ali"; // String
+let age = 25; // Number
+let active = true; // Boolean
+let skills = ["JavaScript", "React"]; // Array
+let user = { name: "Ali" }; // Object
+```
+
+JavaScript also includes other important types such as:
+
+- `undefined`
+- `null`
+- `bigint`
+- `symbol`
+
+Understanding JavaScript's types is essential before moving to more advanced topics.
+
+## Functions
+
+Functions allow you to organize reusable pieces of logic.
+
+For example:
+
+```javascript
+function sum(a, b) {
+  return a + b;
+}
+
+console.log(sum(10, 20));
+```
+
+Functions can also be assigned to variables, passed to other functions, returned from functions, and used as callbacks.
+
+This is especially important when working with arrays, events, promises, and modern JavaScript frameworks.
+
+## Conditionals
+
+Conditional statements allow a program to make decisions.
+
+```javascript
+const age = 25;
+
+if (age >= 18) {
+  console.log("Adult");
+} else {
+  console.log("Under 18");
+}
+```
+
+JavaScript also provides other control-flow structures such as `switch`, the conditional operator, and logical operators.
+
+## Loops
+
+Loops are used when a piece of code needs to be repeated.
+
+For example:
+
+```javascript
+for (let i = 0; i < 5; i++) {
+  console.log(i);
+}
+```
+
+JavaScript also supports:
+
+- `while`
+- `do...while`
+- `for...of`
+- `for...in`
+
+The appropriate loop depends on the data and the operation you need to perform.
+
+## What Is the DOM?
+
+The **DOM (Document Object Model)** is a browser-provided API that represents an HTML document as a structure of objects that JavaScript can interact with.
+
+This allows JavaScript running in a browser to read and modify webpage content and respond to user interactions.
+
+For example:
+
+```javascript
+document.getElementById("title").textContent = "Hello";
+```
+
+If an element with the ID `title` exists, this code changes its text content.
+
+The DOM is part of the web platform and should be distinguished from the core ECMAScript language itself.
+
+## JavaScript and Frontend Development
+
+JavaScript is one of the main technologies used in frontend development.
+
+Developers use JavaScript to build interactive interfaces, communicate with APIs, manage application state, and implement client-side behavior.
+
+Popular JavaScript technologies include:
+
+- [React](/en/blog/what-is-react-js)
+- [Next.js](/en/blog/what-is-next-js)
+- Vue.js
+- Angular
+
+React and Vue are libraries/frameworks in the JavaScript ecosystem, while Next.js is a React framework. They are built around JavaScript but are not replacements for understanding the JavaScript language itself.
+
+If you're new to programming concepts, reading [What Is an Algorithm?](/en/blog/what-is-algorithm) can help you understand problem-solving and logical thinking.
+
+## JavaScript and Node.js
+
+JavaScript was initially best known for running in web browsers, but it is now used in many other environments.
+
+**Node.js** is a JavaScript runtime that allows JavaScript code to run outside the browser, including on servers.
+
+With Node.js, developers can:
+
+- Build APIs
+- Create backend services
+- Work with databases
+- Implement authentication systems
+- Read and write files
+- Build command-line tools
+- Create HTTP and WebSocket services
+
+Node.js provides APIs and runtime capabilities that are separate from the core ECMAScript language.
+
+## JavaScript Beyond the Browser
+
+JavaScript is also used in other environments.
+
+Depending on the runtime and ecosystem, JavaScript can be used for:
+
+- Server-side applications
+- Desktop applications
+- Mobile applications
+- Automation and scripting
+- Embedded and specialized applications
+
+For example, Electron can be used to build desktop applications, while React Native uses JavaScript or TypeScript with native platform components for mobile development.
+
+This means JavaScript has evolved from a browser scripting language into a general-purpose language used across many environments.
+
+## JavaScript and Asynchronous Programming
+
+Asynchronous programming is an important part of modern JavaScript.
+
+It allows applications to start operations that may take time, such as network requests, without requiring the rest of the application logic to wait synchronously for the result.
+
+Modern JavaScript provides several mechanisms for asynchronous programming, including:
+
+- Callbacks
+- Promises
+- `async` / `await`
+
+For example:
+
+```javascript
+async function loadUser() {
+  const response = await fetch("/api/user");
+  const user = await response.json();
+
+  console.log(user);
+}
+```
+
+Promises and the event loop are important concepts for understanding how JavaScript handles asynchronous operations.
+
+## Advantages of JavaScript
+
+Some important advantages of JavaScript include:
+
+- Runs in all major modern browsers
+- Large ecosystem
+- Widely used in web development
+- Supports multiple programming paradigms
+- Can be used in both browser and server environments
+- Large developer community
+- Extensive collection of libraries and frameworks
+- Useful for many types of applications
+
+However, JavaScript also has complexities and limitations. Learning the fundamentals rather than relying only on frameworks is important for becoming a strong JavaScript developer.
+
+## Is JavaScript Still Worth Learning?
+
+Yes.
+
+JavaScript remains a fundamental technology for modern web development and is an essential foundation for many frontend development paths.
+
+If you want to become:
+
+- A Frontend Developer
+- A React Developer
+- A Next.js Developer
+- A Full-Stack Developer
+
+a strong understanding of JavaScript will be extremely useful.
+
+Learning JavaScript also makes it easier to understand frameworks and libraries because many of them build on JavaScript's core concepts.
+
+## What Should You Learn After JavaScript Basics?
+
+After learning the fundamentals, a useful learning path can include:
+
+1. Variables and data types
+2. Functions and scope
+3. Arrays and objects
+4. DOM and browser APIs
+5. Events
+6. Asynchronous JavaScript
+7. Promises and `async` / `await`
+8. Modules
+9. Error handling
+10. Modern JavaScript features
+11. Git and package management
+12. React or another frontend framework
+
+You can then move toward more advanced topics such as closures, prototypes, classes, the event loop, performance, testing, and application architecture.
+
+## Conclusion
+
+JavaScript is a general-purpose programming language that plays a central role in modern web development.
+
+It provides the core language features used to build application logic, while environments such as browsers and Node.js provide additional APIs and capabilities.
+
+Understanding JavaScript fundamentals is therefore much more valuable than simply learning a framework.
+
+Once you have a strong JavaScript foundation, technologies such as React and Next.js become much easier to understand and use effectively.
+
+## Related Articles
+
+Continue learning with these related articles:
+
+- [What Is an Algorithm?](/en/blog/what-is-algorithm)
+- [What Is React?](/en/blog/what-is-react-js)
+- [What Is Next.js?](/en/blog/what-is-next-js)
+- [What Is Web Hosting? What Is a Domain Name?](/en/blog/what-is-hosting-and-domain)

@@ -1,0 +1,554 @@
+---
+title: "Next.js چیست؟ راهنمای کامل فریمورک React"
+description: "آشنایی کامل با Next.js، نحوه کار، App Router، Server و Client Components، روش‌های رندر، سئو و قابلیت‌های مهم آن برای توسعه وب مدرن."
+date: "2026-07-16"
+modified: "2026-09-15"
+featured: true
+cover: "/blog/next-js.webp"
+translationKey: "nextjs"
+category: "frontend"
+tags:
+  - Next.js
+  - React
+  - JavaScript
+  - App Router
+  - Server Components
+  - توسعه وب
+  - سئو
+  - فرانت‌اند
+keywords:
+  - Next.js چیست
+  - آموزش Next.js
+  - آموزش نکست جی اس
+  - Next.js برای مبتدیان
+  - App Router چیست
+  - فریمورک React
+  - سئو در Next.js
+  - Server Components
+  - مسیردهی Next.js
+related:
+  - "javascript"
+  - "react"
+  - "algorithm"
+  - "hosting-domain"
+---
+
+# Next.js چیست؟ راهنمای کامل فریمورک React
+
+اگر هنوز با JavaScript و React آشنا نیستید، بهتر است ابتدا مقاله‌های پایه را مطالعه کنید:
+
+- [JavaScript چیست؟](/fa/blog/what-is-javascript)
+- [React چیست؟](/fa/blog/what-is-react-js)
+
+Next.js یک فریمورک React برای ساخت وب‌اپلیکیشن‌های مدرن است.
+
+React ابزارهای لازم برای ساخت رابط کاربری را فراهم می‌کند، در حالی که Next.js امکانات سطح بالاتری مانند مسیردهی، روش‌های مختلف رندر، قابلیت‌های سمت سرور، مدیریت Metadata، بهینه‌سازی تصاویر و امکانات مختلف برای ساخت اپلیکیشن‌های Production-ready را در اختیار توسعه‌دهنده قرار می‌دهد.
+
+با Next.js می‌توان پروژه‌هایی مانند پورتفولیو، وبلاگ، سایت شرکتی، فروشگاه اینترنتی، داشبورد، SaaS و وب‌اپلیکیشن‌های Full-Stack ساخت.
+
+در این مقاله با مفهوم Next.js، App Router، روش‌های رندر، Server و Client Components، Route Handlers، سئو و قابلیت‌های مهم این فریمورک آشنا می‌شویم.
+
+## Next.js چیست؟
+
+Next.js یک فریمورک مبتنی بر React برای ساخت وب‌اپلیکیشن‌های Full-Stack است.
+
+به زبان ساده:
+
+- **React** یک کتابخانه برای ساخت رابط کاربری است.
+- **Next.js** یک فریمورک مبتنی بر React است که امکانات موردنیاز برای ساخت یک اپلیکیشن کامل را اضافه می‌کند.
+
+برخی از قابلیت‌های مهم Next.js عبارت‌اند از:
+
+- مسیردهی مبتنی بر ساختار فایل
+- Server و Client Components
+- رندر Static و Dynamic
+- دریافت داده
+- Route Handlers
+- مدیریت Metadata و امکانات سئو
+- بهینه‌سازی تصاویر
+- Layoutهای تو در تو
+- مدیریت Loading و Error
+- Cache و Revalidation
+
+## چرا Next.js ساخته شد؟
+
+React برای ساخت رابط کاربری بسیار قدرتمند است، اما یک پروژه واقعی فقط به UI نیاز ندارد.
+
+در یک پروژه Production معمولاً به موارد زیر نیز نیاز داریم:
+
+- Routing
+- Rendering
+- Data Fetching
+- SEO
+- Performance
+- ساختار پروژه
+- قابلیت‌های سمت سرور
+- بهینه‌سازی Assetها
+
+اگر همه این بخش‌ها را بدون یک فریمورک مدیریت کنیم، باید ابزارهای مختلفی را در کنار هم قرار دهیم و تصمیم‌های معماری بیشتری بگیریم.
+
+Next.js بسیاری از این قابلیت‌ها و Conventionها را در قالب یک فریمورک منسجم در اختیار توسعه‌دهنده قرار می‌دهد.
+
+## مهم‌ترین قابلیت‌های Next.js
+
+### File-Based Routing
+
+در Next.js مسیرها بر اساس ساختار فایل‌ها و پوشه‌ها تعریف می‌شوند.
+
+برای مثال:
+
+```text
+app/
+├─ page.jsx
+├─ blog/
+│  └─ page.jsx
+└─ contact/
+   └─ page.jsx
+```
+
+می‌تواند مسیرهایی مانند موارد زیر ایجاد کند:
+
+```text
+/
+/blog
+/contact
+```
+
+مسیرهای Dynamic نیز پشتیبانی می‌شوند.
+
+برای مثال:
+
+```text
+app/
+└─ blog/
+   └─ [slug]/
+      └─ page.jsx
+```
+
+می‌تواند برای URLهایی مانند موارد زیر استفاده شود:
+
+```text
+/blog/what-is-javascript
+/blog/what-is-react-js
+```
+
+این ساختار باعث می‌شود مدیریت پروژه‌های بزرگ ساده‌تر و منظم‌تر باشد.
+
+## Static و Dynamic Rendering
+
+یکی از مفاهیم مهم Next.js، امکان استفاده از روش‌های مختلف Rendering بر اساس نیاز پروژه است.
+
+### Static Rendering
+
+در Static Rendering محتوا می‌تواند از قبل تولید و سپس در درخواست‌های مختلف استفاده شود.
+
+این روش برای محتواهایی که برای همه کاربران یکسان هستند بسیار مناسب است.
+
+برای مثال:
+
+- مقالات وبلاگ
+- مستندات
+- صفحات بازاریابی
+- صفحات پورتفولیو
+- صفحات عمومی محصولات
+
+محتوای Static می‌تواند Cache شود و در نتیجه سرعت پاسخ‌گویی افزایش پیدا کند و فشار روی سرور کاهش یابد.
+
+### Dynamic Rendering
+
+در Dynamic Rendering محتوا در زمان درخواست تولید می‌شود؛ زمانی که داده به Request، کاربر یا اطلاعاتی که مرتب تغییر می‌کنند وابسته است.
+
+این روش برای مواردی مانند زیر مناسب است:
+
+- داشبوردهای شخصی
+- صفحات مخصوص کاربران
+- داده‌های Real-Time
+- محتوای وابسته به Request
+
+بنابراین در Next.js لازم نیست تمام صفحات یک پروژه دقیقاً از یک روش Rendering استفاده کنند.
+
+### Incremental Static Regeneration
+
+Next.js امکان Revalidation را نیز فراهم می‌کند.
+
+با این قابلیت می‌توان محتوای Static را بدون Build مجدد کل پروژه به‌روزرسانی کرد.
+
+برای مثال، یک مقاله وبلاگ می‌تواند به‌صورت Cache شده ارائه شود و پس از گذشت مدت مشخصی دوباره تولید شود.
+
+این روش برای سایت‌هایی که محتوای نسبتاً Static دارند اما باید در بازه‌های زمانی مشخص به‌روزرسانی شوند بسیار مفید است.
+
+## Route Handlers
+
+در App Router، Next.js قابلیتی به نام **Route Handlers** برای ساخت Endpointهای سمت سرور دارد.
+
+برای مثال:
+
+```text
+app/
+└─ api/
+   └─ contact/
+      └─ route.js
+```
+
+Route Handler می‌تواند برای موارد زیر استفاده شود:
+
+- پردازش فرم‌ها
+- ساخت API Endpoint
+- عملیات مرتبط با احراز هویت
+- ارتباط با Database
+- اتصال به سرویس‌های خارجی
+- دریافت Webhook
+
+برای مثال:
+
+```javascript
+export async function POST(request) {
+  const body = await request.json();
+
+  return Response.json({
+    success: true,
+    message: "Request received",
+  });
+}
+```
+
+در App Router بهتر است از اصطلاح **Route Handlers** استفاده کنیم و آن را با API Routes مربوط به Pages Router اشتباه نگیریم.
+
+## بهینه‌سازی تصاویر در Next.js
+
+Next.js کامپوننت `next/image` را برای مدیریت و بهینه‌سازی تصاویر ارائه می‌دهد.
+
+مثال:
+
+```jsx
+import Image from "next/image";
+
+export default function Profile() {
+  return <Image src="/profile.jpg" alt="Payam Fard" width={400} height={400} />;
+}
+```
+
+این کامپوننت می‌تواند به موارد زیر کمک کند:
+
+- ارائه تصاویر با اندازه مناسب
+- Responsive بودن تصاویر
+- Lazy Loading
+- کاهش دانلود غیرضروری تصاویر
+- جلوگیری از Layout Shift
+- استفاده از فرمت‌های مدرن تصویر در صورت پشتیبانی
+
+بهینه‌سازی تصویر بیشتر یک قابلیت Performance و UX است و به‌تنهایی تضمین‌کننده رتبه بهتر در موتورهای جستجو نیست.
+
+## Metadata و سئو در Next.js
+
+Next.js یک Metadata API برای تعریف اطلاعات موردنیاز موتورهای جستجو و شبکه‌های اجتماعی ارائه می‌دهد.
+
+مواردی مانند:
+
+- Title
+- Description
+- Open Graph
+- Twitter/X Metadata
+- Canonical URL
+- Robots Directives
+
+را می‌توان برای صفحات تعریف کرد.
+
+برای مثال:
+
+```jsx
+export const metadata = {
+  title: "Payam Fard | Front-End Developer",
+  description: "Front-End Developer and Network & IT Specialist.",
+};
+```
+
+برای صفحات Dynamic نیز می‌توان از `generateMetadata` استفاده کرد.
+
+البته استفاده از Next.js به‌تنهایی باعث SEO شدن یک سایت نمی‌شود.
+
+SEO مناسب به عوامل مختلفی مانند موارد زیر وابسته است:
+
+- کیفیت محتوا
+- Metadata صحیح
+- HTML معنایی
+- لینک‌سازی داخلی
+- Performance
+- Mobile Usability
+- Accessibility
+- Canonical URL
+- Sitemap
+- Robots
+- Structured Data در صورت نیاز
+
+## App Router چیست؟
+
+App Router معماری مدرن Routing در Next.js است.
+
+این معماری بر پایه پوشه `app` ساخته شده و از قابلیت‌های جدید React مانند Server Components پشتیبانی می‌کند.
+
+یک ساختار ساده می‌تواند به شکل زیر باشد:
+
+```text
+app/
+├─ layout.jsx
+├─ page.jsx
+├─ blog/
+│  ├─ page.jsx
+│  └─ [slug]/
+│     └─ page.jsx
+└─ contact/
+   └─ page.jsx
+```
+
+App Router Conventionهایی برای موارد زیر نیز دارد:
+
+- Layout
+- Loading UI
+- Error Handling
+- Not Found
+- Metadata
+- Route Handlers
+- Server و Client Components
+
+Pages Router همچنان پشتیبانی می‌شود، اما App Router معماری مدرن Next.js و مسیر اصلی استفاده از قابلیت‌های جدید این فریمورک است.
+
+## Server Components و Client Components
+
+یکی از مهم‌ترین مفاهیم Next.js مدرن، تفاوت Server Components و Client Components است.
+
+### Server Components
+
+در App Router، کامپوننت‌ها به‌صورت پیش‌فرض Server Component هستند.
+
+Server Components برای مواردی مانند زیر بسیار مناسب‌اند:
+
+- دریافت داده
+- استفاده از منابع سمت سرور
+- نگه‌داشتن Logic مخصوص سرور خارج از Browser
+- کاهش JavaScript موردنیاز سمت Client
+
+Server Component نمی‌تواند مستقیماً از قابلیت‌هایی مانند `useState` یا Event Handlerهای مرورگر استفاده کند.
+
+### Client Components
+
+Client Components زمانی استفاده می‌شوند که یک کامپوننت به Interaction یا قابلیت‌های سمت Browser نیاز داشته باشد.
+
+برای مثال:
+
+- `useState`
+- `useEffect`
+- Event Handlerها
+- Browser APIs
+
+یک Client Component با عبارت زیر مشخص می‌شود:
+
+```jsx
+"use client";
+```
+
+مثال:
+
+```jsx
+"use client";
+
+import { useState } from "react";
+
+export default function Counter() {
+  const [count, setCount] = useState(0);
+
+  return <button onClick={() => setCount(count + 1)}>Count: {count}</button>;
+}
+```
+
+استفاده درست از Server و Client Components می‌تواند حجم JavaScript سمت مرورگر را کاهش داده و Performance را بهبود دهد.
+
+## چرا توسعه‌دهندگان از Next.js استفاده می‌کنند؟
+
+Next.js بسیاری از قابلیت‌های موردنیاز پروژه‌های Production را در کنار React ارائه می‌دهد.
+
+برخی از مزایای آن عبارت‌اند از:
+
+- File-Based Routing
+- Server و Client Components
+- روش‌های مختلف Rendering
+- Metadata API
+- Image Optimization
+- Route Handlers
+- Nested Layouts
+- Data Fetching
+- Cache و Revalidation
+- ابزارهای مناسب برای Performance
+- اکوسیستم بزرگ React
+
+Next.js از TypeScript نیز پشتیبانی می‌کند، اما استفاده از TypeScript اجباری نیست و می‌توان پروژه‌های Next.js را با JavaScript نیز توسعه داد.
+
+## Next.js در چه پروژه‌هایی استفاده می‌شود؟
+
+Next.js برای انواع مختلف پروژه‌ها مناسب است، از جمله:
+
+- پورتفولیوهای شخصی
+- وبلاگ‌ها
+- سایت‌های مستندات
+- سایت‌های شرکتی
+- فروشگاه‌های اینترنتی
+- SaaS
+- داشبوردها
+- پلتفرم‌های محتوایی
+- وب‌اپلیکیشن‌های Full-Stack
+
+Showcase رسمی Next.js نیز نمونه‌های متعددی از وب‌سایت‌ها و پروژه‌های Production را نمایش می‌دهد.
+
+بنابراین Next.js فقط برای سایت‌های ساده استفاده نمی‌شود و می‌تواند برای پروژه‌های بزرگ و پیچیده نیز به کار گرفته شود.
+
+## آیا یادگیری Next.js ارزش دارد؟
+
+بله.
+
+اگر React را یاد گرفته‌اید و می‌خواهید وب‌اپلیکیشن‌های Production-ready بسازید، یادگیری Next.js می‌تواند قدم مهمی در مسیر شما باشد.
+
+Next.js مخصوصاً برای توسعه‌دهندگانی مناسب است که قصد دارند موارد زیر را بسازند:
+
+- وب‌سایت‌های سریع و SEO-friendly
+- وب‌اپلیکیشن‌های مدرن
+- سایت‌های محتوامحور
+- فروشگاه‌های اینترنتی
+- SaaS
+- اپلیکیشن‌های Full-Stack مبتنی بر React
+
+اگر هنوز در حال یادگیری JavaScript هستید، ابتدا مقاله [JavaScript چیست؟](/fa/blog/what-is-javascript) را مطالعه کنید.
+
+## قبل از Next.js چه چیزهایی یاد بگیریم؟
+
+یک مسیر یادگیری منطقی می‌تواند شامل مراحل زیر باشد:
+
+1. HTML
+2. CSS
+3. JavaScript
+4. JavaScript مدرن
+5. React
+6. Next.js
+7. App Router
+8. Server و Client Components
+9. Data Fetching
+10. Rendering و Caching
+11. Route Handlers
+12. Metadata و SEO
+13. Authentication
+14. Database
+15. Deployment و Performance Optimization
+
+همچنین بهتر است مفاهیم زیر را نیز بلد باشید:
+
+- Promise
+- `async` / `await`
+- Modules
+- API
+- HTTP
+- Git
+- Accessibility
+- SEO پایه
+
+داشتن این پایه‌ها یادگیری Next.js را بسیار ساده‌تر می‌کند.
+
+## Next.js در مقایسه با React
+
+React و Next.js به هم مرتبط هستند، اما جایگزین یکدیگر نیستند.
+
+#### React
+
+- کتابخانه رابط کاربری
+- تمرکز اصلی روی ساخت رابط کاربری
+- معمولاً برای Routing به ابزارهای اضافی نیاز دارد
+- معماری Rendering به تنظیمات پروژه بستگی دارد
+- می‌تواند به‌صورت مستقل استفاده شود
+- برای ساخت یک اپلیکیشن کامل به معماری و ابزارهای بیشتری نیاز دارد
+
+#### Next.js
+
+- فریمورک مبتنی بر React
+- ارائه قابلیت‌های سطح اپلیکیشن
+- دارای File-Based Routing
+- از روش‌های مختلف Rendering پشتیبانی می‌کند
+- بر پایه React ساخته شده است
+- Conventionها و امکانات بیشتری برای پروژه‌های Production ارائه می‌دهد
+
+React همچنان پایه Next.js است.
+
+یادگیری Next.js به معنی کنار گذاشتن مفاهیم React نیست.
+
+## Next.js و سئو
+
+Next.js می‌تواند انتخاب مناسبی برای سایت‌های SEO-focused باشد، زیرا از روش‌هایی برای Rendering پشتیبانی می‌کند که می‌توانند محتوای صفحه را قبل از درخواست یا هنگام درخواست تولید کنند.
+
+Static Rendering برای محتواهایی مانند مقالات وبلاگ بسیار مناسب است و Dynamic Rendering نیز زمانی استفاده می‌شود که محتوا باید در زمان Request تولید شود.
+
+Next.js همچنین Metadata API را برای مدیریت Title، Description، Open Graph، Robots و سایر Metadataها ارائه می‌دهد.
+
+با این حال، استفاده از Next.js به‌تنهایی باعث SEO شدن سایت نمی‌شود.
+
+برای SEO مناسب باید موارد زیر نیز رعایت شوند:
+
+- محتوای ارزشمند
+- Metadata صحیح
+- HTML معنایی
+- Internal Linking
+- Performance مناسب
+- طراحی Mobile-friendly
+- Accessibility
+- Canonical URL
+- Sitemap
+- Robots
+- Structured Data در صورت نیاز
+
+## Next.js و Performance
+
+Performance یکی از دلایل مهم استفاده از Next.js است.
+
+این فریمورک امکانات مختلفی برای بهبود Performance ارائه می‌دهد، از جمله:
+
+- Server Components
+- Image Optimization
+- Code Splitting
+- Caching
+- Prefetching
+- Static Rendering
+- Streaming
+- Production Optimization
+
+برای مثال، `next/image` می‌تواند تصاویر را متناسب با اندازه موردنیاز Resize کند، تصاویر خارج از Viewport را به‌صورت پیش‌فرض Lazy Load کند و در صورت پشتیبانی مرورگر از فرمت‌های مدرن تصویر استفاده کند.
+
+البته Performance فقط به خود Framework وابسته نیست.
+
+Data Fetching ضعیف، تصاویر سنگین، استفاده بیش از حد از Client Components و Scriptهای شخص ثالث می‌توانند حتی یک پروژه Next.js را نیز کند کنند.
+
+## جمع‌بندی
+
+Next.js یک فریمورک React برای ساخت وب‌اپلیکیشن‌های مدرن و Full-Stack است.
+
+این فریمورک قابلیت‌هایی مانند موارد زیر را در اختیار توسعه‌دهنده قرار می‌دهد:
+
+- File-Based Routing
+- Server و Client Components
+- Static و Dynamic Rendering
+- Data Fetching
+- Route Handlers
+- Metadata و امکانات SEO
+- Image Optimization
+- Caching و Revalidation
+- Nested Layouts
+
+نکته مهم این است که Next.js جایگزین JavaScript یا React نیست.
+
+داشتن پایه قوی در JavaScript و React باعث می‌شود معماری و قابلیت‌های Next.js را بسیار بهتر درک کنید.
+
+پس از یادگیری این مفاهیم، Next.js می‌تواند ابزار بسیار قدرتمندی برای ساخت وب‌اپلیکیشن‌های سریع، مقیاس‌پذیر، Accessible و Production-ready باشد.
+
+## مطالب مرتبط
+
+برای ادامه یادگیری می‌توانید مقالات زیر را مطالعه کنید:
+
+- [JavaScript چیست؟](/fa/blog/what-is-javascript)
+- [React چیست؟](/fa/blog/what-is-react-js)
+- [الگوریتم چیست؟](/fa/blog/what-is-algorithm)
+- [هاست و دامنه چیست؟](/fa/blog/what-is-hosting-and-domain)
