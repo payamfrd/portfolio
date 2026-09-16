@@ -138,40 +138,42 @@ export default async function LocaleLayout({ children, params }) {
   }
 
   return (
-    <div
+    <html
       lang={locale}
       dir={locale === "fa" ? "rtl" : "ltr"}
-      className={locale === "fa" ? "font-vazir" : "font-inter"}
+      suppressHydrationWarning
     >
-      <NextIntlClientProvider locale={locale} messages={messages}>
-        <ThemeProvider>
-          <SiteBackground />
+      <body className={locale === "fa" ? "font-vazir" : "font-inter"}>
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <ThemeProvider>
+            <SiteBackground />
 
-          <Toaster
-            position="top-center"
-            toastOptions={{
-              duration: 4000,
-              style: {
-                background: "var(--card)",
-                color: "var(--text)",
-                border: "1px solid var(--border)",
-              },
-            }}
-          />
+            <Toaster
+              position="top-center"
+              toastOptions={{
+                duration: 4000,
+                style: {
+                  background: "var(--card)",
+                  color: "var(--text)",
+                  border: "1px solid var(--border)",
+                },
+              }}
+            />
 
-          <ScrollProgress />
+            <ScrollProgress />
 
-          <Navbar />
+            <Navbar />
 
-          {children}
+            {children}
 
-          <PersonSchema />
+            <PersonSchema />
 
-          <Footer locale={locale} />
+            <Footer locale={locale} />
 
-          <ScrollToTop />
-        </ThemeProvider>
-      </NextIntlClientProvider>
-    </div>
+            <ScrollToTop />
+          </ThemeProvider>
+        </NextIntlClientProvider>
+      </body>
+    </html>
   );
 }

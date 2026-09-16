@@ -1,4 +1,4 @@
-import "./globals.css";
+import "../../globals.css";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL || "https://mohammadmehdifard.ir";
@@ -46,46 +46,6 @@ export const metadata = {
   creator: "Mohammadmehdi Fard",
   publisher: "Mohammadmehdi Fard",
 
-  alternates: {
-    canonical: `${SITE_URL}/fa`,
-    languages: {
-      fa: `${SITE_URL}/fa`,
-      en: `${SITE_URL}/en`,
-      "x-default": `${SITE_URL}/en`,
-    },
-  },
-
-  openGraph: {
-    type: "website",
-    url: `${SITE_URL}/fa`,
-    title: "Mohammadmehdi Fard | Front-End Developer & Network / IT Specialist",
-    description:
-      "Portfolio, projects, blog, resume, and professional background of Mohammadmehdi Fard.",
-    siteName: "Mohammadmehdi Fard",
-    locale: "fa_IR",
-    alternateLocale: ["en_US"],
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Mohammadmehdi Fard Portfolio",
-      },
-    ],
-  },
-
-  twitter: {
-    card: "summary_large_image",
-    title: "Mohammadmehdi Fard | Front-End Developer & Network / IT Specialist",
-    description: "Front-End Developer and Network / IT Specialist portfolio.",
-    images: ["/og-image.png"],
-  },
-
-  icons: {
-    icon: "/profile.jpg",
-    apple: "/profile.jpg",
-  },
-
   robots: {
     index: true,
     follow: true,
@@ -101,7 +61,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="fa" dir="rtl" suppressHydrationWarning>
+    <html lang="en" dir="ltr" suppressHydrationWarning>
       <body>{children}</body>
     </html>
   );
