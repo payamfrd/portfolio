@@ -3,7 +3,7 @@ import { FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import { HiOutlineMailOpen } from "react-icons/hi";
 import { FiArrowUpRight, FiDownload, FiHeart } from "react-icons/fi";
 
-import { getAllPosts } from "@/lib/blog";
+import { getAllPosts } from "@/lib/blog/blog";
 import { getTranslations } from "next-intl/server";
 
 const Footer = async ({ locale }) => {

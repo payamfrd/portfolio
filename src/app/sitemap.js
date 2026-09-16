@@ -1,4 +1,4 @@
-import { getAllPosts } from "@/lib/blog";
+import { getAllPosts } from "@/lib/blog/blog";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL || "https://mohammadmehdifard.ir";

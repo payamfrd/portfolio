@@ -1,4 +1,4 @@
-import { getAllPosts } from "@/lib/blog";
+import { getAllPosts } from "@/lib/blog/blog";
 import BlogFilters from "@/components/blog/BlogFilters";
 import Breadcrumb from "@/components/ui/Breadcrumb";
 import { getTranslations } from "next-intl/server";

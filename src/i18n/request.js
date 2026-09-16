@@ -1,14 +1,21 @@
 import { getRequestConfig } from "next-intl/server";
 
+const SUPPORTED_LOCALES = ["fa", "en"];
+
 export default getRequestConfig(async ({ requestLocale }) => {
-  const locale = await requestLocale;
+  const requestedLocale = await requestLocale;
+
+  const locale = SUPPORTED_LOCALES.includes(requestedLocale)
+    ? requestedLocale
+    : "fa";
+
+  const messages = (await import(`../messages/${locale}.json`)).default;
 
   return {
     locale,
-    messages: (await import(`../messages/${locale}.json`)).default,
+    messages,
   };
 });
-
 
 // import { getRequestConfig } from "next-intl/server";
 
@@ -43,4 +50,3 @@ export default getRequestConfig(async ({ requestLocale }) => {
 //     ).default
 //   };
 // });
-

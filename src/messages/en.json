@@ -437,30 +437,65 @@
     "desc2": "Related Articles"
   },
   "contact": {
-    "name": "Your Name",
+    "title": "Let's Work Together",
+    "description": "Tell me about your front-end, networking, or IT project and let's discuss how I can help.",
+
+    "name": "Full Name",
+    "namePlaceholder": "e.g. Payam Fard",
+
     "email": "Email",
-    "phone": "Phone Number",
-    "company": "Company Name",
-    "invalidEmail": "Please enter a valid email address",
+    "emailPlaceholder": "example@email.com",
+
+    "phone": "Phone",
+    "phonePlaceholder": "e.g. +989301801747",
+
+    "company": "Company / Organization",
+    "companyPlaceholder": "Company or organization name",
+
     "projectType": {
       "title": "Project Type",
+      "placeholder": "Select a project type",
       "freelance": "Freelance",
-      "partTime": "Part-Time",
-      "fullTime": "Full-Time",
+      "partTime": "Part-time",
+      "fullTime": "Full-time",
       "consulting": "Consulting"
     },
-    "budget": "Budget",
-    "message": "Messages",
-    "messageTooShort": "Message must be at least 10 characters",
-    "whatsapp": "Send Via WhatsApp",
-    "nameRequired": "Name is required",
-    "emailRequired": "Email is required",
-    "messageRequired": "Message is required",
-    "success": "Message sent successfully",
-    "error": "Something went wrong",
-    "tooManyRequests": "Too many requests. Please try again later.",
-    "send": "Send",
-    "sending": "Sending"
+
+    "budget": "Estimated Budget",
+    "budgetPlaceholder": "e.g. $1,000 - $3,000",
+
+    "message": "Project Details",
+    "messagePlaceholder": "Tell me about your project, requirements, and timeline...",
+
+    "send": "Send Request",
+    "sending": "Sending...",
+    "whatsapp": "Send via WhatsApp",
+
+    "nameRequired": "Please enter your full name.",
+    "nameTooLong": "Your name is too long.",
+
+    "emailRequired": "Please enter your email.",
+    "emailTooLong": "Your email is too long.",
+    "invalidEmail": "Please enter a valid email address.",
+
+    "invalidPhone": "Please enter a valid phone number.",
+    "phoneTooLong": "Your phone number is too long.",
+
+    "companyTooLong": "The company name is too long.",
+    "budgetTooLong": "The budget value is too long.",
+
+    "messageRequired": "Please enter your project details.",
+    "messageTooShort": "The project details must contain at least 10 characters.",
+    "messageTooLong": "The project details must not exceed 3000 characters.",
+
+    "completeFormForWhatsapp": "Please complete your name, email, and project details first.",
+
+    "success": "Your request has been sent successfully.",
+    "error": "The request could not be sent. Please try again.",
+    "networkError": "Could not connect to the server. Please check your internet connection.",
+    "tooManyRequests": "Too many requests. Please try again in a few minutes.",
+    "requestTooLarge": "The submitted data is too large.",
+    "serviceUnavailable": "The sending service is temporarily unavailable. Please try again later."
   },
   "errorPage": {
     "label": "Oops!",

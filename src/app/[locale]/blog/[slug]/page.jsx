@@ -3,7 +3,7 @@ import {
   getPostBySlug,
   getRelatedPosts,
   getPostTranslation,
-} from "@/lib/blog";
+} from "@/lib/blog/blog";
 
 import { notFound } from "next/navigation";
 import Image from "next/image";
