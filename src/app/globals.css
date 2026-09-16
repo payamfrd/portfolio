@@ -1,4 +1,5 @@
 @import "tailwindcss";
+
 @plugin "@tailwindcss/typography";
 
 html {
@@ -15,45 +16,37 @@ html.dark {
 }
 
 :root {
-  /* Light Theme */
-
   --bg: #cdd1d5;
-
   --card: #f5f7fb;
   --border: #96999f;
-
   --text: #0f172a;
   --muted: #475569;
-
   --primary: #2563eb;
   --accent: #f97316;
-
   --github: #181717;
 }
 
 html.dark {
-  /* Dark Theme */
-
   --bg: #020617;
-
   --card: #0f172a;
   --border: #1e293b;
-
   --text: #f8fafc;
   --muted: #94a3b8;
-
   --primary: #2563eb;
   --accent: #f97316;
-
   --github: #f0f0f0;
 }
 
 body {
   min-height: 100vh;
+  margin: 0;
   background: var(--bg);
   color: var(--text);
   position: relative;
   isolation: isolate;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
@@ -78,10 +71,6 @@ body {
    GLOBAL SITE BACKGROUND
 ========================================= */
 
-/* =========================================
-   BACKGROUND ROOT
-========================================= */
-
 .site-background {
   position: fixed;
   inset: 0;
@@ -90,7 +79,6 @@ body {
   overflow: hidden;
   pointer-events: none;
   z-index: -10;
-
   background:
     radial-gradient(
       circle at 8% 10%,
@@ -113,7 +101,6 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-
   background-image:
     linear-gradient(
       to right,
@@ -125,9 +112,7 @@ body {
       color-mix(in srgb, var(--primary) 50%, transparent) 1px,
       transparent 1px
     );
-
   background-size: 52px 52px;
-
   opacity: 0.16;
 }
 
@@ -139,13 +124,11 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-
   background: radial-gradient(
     ellipse at center,
     transparent 30%,
     color-mix(in srgb, var(--bg) 35%, transparent) 100%
   );
-
   opacity: 0.55;
 }
 
@@ -157,19 +140,15 @@ body {
   position: absolute;
   border-radius: 9999px;
   pointer-events: none;
-
   filter: blur(110px);
-
   will-change: transform;
 }
 
 .background-blob-primary {
   width: 520px;
   height: 520px;
-
   top: -220px;
   left: -180px;
-
   background: var(--primary);
   opacity: 0.13;
 }
@@ -177,10 +156,8 @@ body {
 .background-blob-accent {
   width: 480px;
   height: 480px;
-
   right: -180px;
   bottom: -200px;
-
   background: var(--accent);
   opacity: 0.11;
 }
@@ -268,20 +245,16 @@ html.dark .background-blob-accent {
   .background-blob-primary {
     width: 300px;
     height: 300px;
-
     top: -120px;
     left: -120px;
-
     filter: blur(80px);
   }
 
   .background-blob-accent {
     width: 280px;
     height: 280px;
-
     right: -120px;
     bottom: -120px;
-
     filter: blur(80px);
   }
 }
@@ -291,6 +264,10 @@ html.dark .background-blob-accent {
 ========================================= */
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   .background-blob {
     will-change: auto;
   }
@@ -302,35 +279,14 @@ html.dark .background-blob-accent {
 
 .social-link {
   color: var(--social-color);
-  border-color: color-mix(
-    in srgb,
-    var(--social-color) 35%,
-    var(--border)
-  );
-
-  background: color-mix(
-    in srgb,
-    var(--social-color) 8%,
-    var(--card)
-  );
+  border-color: color-mix(in srgb, var(--social-color) 35%, var(--border));
+  background: color-mix(in srgb, var(--social-color) 8%, var(--card));
 }
 
 .social-link:hover {
   color: var(--social-color);
-
   border-color: var(--social-color);
-
-  background: color-mix(
-    in srgb,
-    var(--social-color) 15%,
-    var(--card)
-  );
-
-  box-shadow:
-    0 8px 24px
-    color-mix(
-      in srgb,
-      var(--social-color) 12%,
-      transparent
-    );
+  background: color-mix(in srgb, var(--social-color) 15%, var(--card));
+  box-shadow: 0 8px 24px
+    color-mix(in srgb, var(--social-color) 12%, transparent);
 }

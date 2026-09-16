@@ -44,35 +44,26 @@ export const metadata = {
   ],
 
   creator: "Mohammadmehdi Fard",
-
   publisher: "Mohammadmehdi Fard",
 
   alternates: {
-    canonical: `${SITE_URL}/en`,
-
+    canonical: `${SITE_URL}/fa`,
     languages: {
-      en: `${SITE_URL}/en`,
       fa: `${SITE_URL}/fa`,
+      en: `${SITE_URL}/en`,
       "x-default": `${SITE_URL}/en`,
     },
   },
 
   openGraph: {
     type: "website",
-
-    url: SITE_URL,
-
+    url: `${SITE_URL}/fa`,
     title: "Mohammadmehdi Fard | Front-End Developer & Network / IT Specialist",
-
     description:
       "Portfolio, projects, blog, resume, and professional background of Mohammadmehdi Fard.",
-
     siteName: "Mohammadmehdi Fard",
-
-    locale: "en_US",
-
-    alternateLocale: ["fa_IR"],
-
+    locale: "fa_IR",
+    alternateLocale: ["en_US"],
     images: [
       {
         url: "/og-image.png",
@@ -85,11 +76,8 @@ export const metadata = {
 
   twitter: {
     card: "summary_large_image",
-
     title: "Mohammadmehdi Fard | Front-End Developer & Network / IT Specialist",
-
     description: "Front-End Developer and Network / IT Specialist portfolio.",
-
     images: ["/og-image.png"],
   },
 
@@ -101,7 +89,6 @@ export const metadata = {
   robots: {
     index: true,
     follow: true,
-
     googleBot: {
       index: true,
       follow: true,
@@ -113,5 +100,9 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  return children;
+  return (
+    <html lang="fa" dir="rtl" suppressHydrationWarning>
+      <body>{children}</body>
+    </html>
+  );
 }

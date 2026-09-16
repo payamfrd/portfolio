@@ -43,28 +43,39 @@ export async function generateMetadata({ params }) {
 
   return {
     title,
-
     description,
 
-    keywords: [
-      "Mohammadmehdi Fard",
-      "Payam Fard",
-      "محمدمهدی فرد",
-      "پیام فرد",
-      "Front-End Developer",
-      "React Developer",
-      "Next.js Developer",
-      "JavaScript Developer",
-      "Network Specialist",
-      "IT Specialist",
-      "Network Engineer",
-      "Web Development",
-      "SEO",
-    ],
+    keywords: isFa
+      ? [
+          "محمدمهدی فرد",
+          "پیام فرد",
+          "توسعه‌دهنده فرانت‌اند",
+          "برنامه نویسی",
+          "جاوااسکریپت",
+          "ری‌اکت",
+          "نکست جی‌اس",
+          "شبکه",
+          "متخصص شبکه",
+          "فناوری اطلاعات",
+          "IT",
+          "سئو",
+        ]
+      : [
+          "Mohammadmehdi Fard",
+          "Payam Fard",
+          "Front-End Developer",
+          "React Developer",
+          "Next.js Developer",
+          "JavaScript Developer",
+          "Network Specialist",
+          "Network Engineer",
+          "IT Specialist",
+          "Web Development",
+          "SEO",
+        ],
 
     alternates: {
       canonical,
-
       languages: {
         fa: `${SITE_URL}/fa`,
         en: `${SITE_URL}/en`,
@@ -74,19 +85,12 @@ export async function generateMetadata({ params }) {
 
     openGraph: {
       type: "website",
-
       url: canonical,
-
       title,
-
       description,
-
       siteName: "Mohammadmehdi Fard",
-
       locale: isFa ? "fa_IR" : "en_US",
-
       alternateLocale: isFa ? ["en_US"] : ["fa_IR"],
-
       images: [
         {
           url: `${SITE_URL}/og-image.png`,
@@ -99,18 +103,14 @@ export async function generateMetadata({ params }) {
 
     twitter: {
       card: "summary_large_image",
-
       title,
-
       description,
-
       images: [`${SITE_URL}/og-image.png`],
     },
 
     robots: {
       index: true,
       follow: true,
-
       googleBot: {
         index: true,
         follow: true,
@@ -138,43 +138,40 @@ export default async function LocaleLayout({ children, params }) {
   }
 
   return (
-    <html
+    <div
       lang={locale}
       dir={locale === "fa" ? "rtl" : "ltr"}
-      suppressHydrationWarning
+      className={locale === "fa" ? "font-vazir" : "font-inter"}
     >
-      <body className={locale === "fa" ? "font-vazir" : "font-inter"}>
-        <NextIntlClientProvider locale={locale} messages={messages}>
-          <ThemeProvider>
-            <SiteBackground />
+      <NextIntlClientProvider locale={locale} messages={messages}>
+        <ThemeProvider>
+          <SiteBackground />
 
-            <Toaster
-              position="top-center"
-              toastOptions={{
-                duration: 4000,
+          <Toaster
+            position="top-center"
+            toastOptions={{
+              duration: 4000,
+              style: {
+                background: "var(--card)",
+                color: "var(--text)",
+                border: "1px solid var(--border)",
+              },
+            }}
+          />
 
-                style: {
-                  background: "var(--card)",
-                  color: "var(--text)",
-                  border: "1px solid var(--border)",
-                },
-              }}
-            />
+          <ScrollProgress />
 
-            <ScrollProgress />
+          <Navbar />
 
-            <Navbar />
+          {children}
 
-            {children}
+          <PersonSchema />
 
-            <PersonSchema />
+          <Footer locale={locale} />
 
-            <Footer locale={locale} />
-
-            <ScrollToTop />
-          </ThemeProvider>
-        </NextIntlClientProvider>
-      </body>
-    </html>
+          <ScrollToTop />
+        </ThemeProvider>
+      </NextIntlClientProvider>
+    </div>
   );
 }
