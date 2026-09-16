@@ -1,3 +1,5 @@
+import "@/app/globals.css";
+
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
 import SiteBackground from "@/components/layout/SiteBackground";
@@ -5,6 +7,7 @@ import ThemeProvider from "@/components/layout/ThemeProvider";
 import PersonSchema from "@/components/seo/PersonSchema";
 import ScrollProgress from "@/components/ui/ScrollProgress";
 import ScrollToTop from "@/components/ui/ScrollToTop";
+
 import { NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
 import { Toaster } from "react-hot-toast";
@@ -91,6 +94,7 @@ export async function generateMetadata({ params }) {
       siteName: "Mohammadmehdi Fard",
       locale: isFa ? "fa_IR" : "en_US",
       alternateLocale: isFa ? ["en_US"] : ["fa_IR"],
+
       images: [
         {
           url: `${SITE_URL}/og-image.png`,
@@ -111,6 +115,7 @@ export async function generateMetadata({ params }) {
     robots: {
       index: true,
       follow: true,
+
       googleBot: {
         index: true,
         follow: true,

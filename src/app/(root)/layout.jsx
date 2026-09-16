@@ -1,4 +1,4 @@
-import "../../globals.css";
+import "@/app/globals.css";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL || "https://mohammadmehdifard.ir";
