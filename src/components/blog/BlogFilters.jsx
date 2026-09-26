@@ -11,16 +11,18 @@ import { normalizeSearchText } from "@/lib/blog/formatters";
 
 const POSTS_PER_PAGE = 6;
 
-function getSearchableText(post) {
+function getSearchableText(post = {}) {
   const values = [
     post?.title,
     post?.description,
     post?.category,
+
     ...(Array.isArray(post?.tags) ? post.tags : []),
+
     ...(Array.isArray(post?.keywords) ? post.keywords : []),
   ];
 
-  return normalizeSearchText(values.join(" "));
+  return normalizeSearchText(values.filter(Boolean).join(" "));
 }
 
 export default function BlogFilters({ posts = [] }) {
@@ -40,7 +42,7 @@ export default function BlogFilters({ posts = [] }) {
   }, [posts, searchTerm]);
 
   const featuredPosts = useMemo(
-    () => filteredPosts.filter((post) => post.featured),
+    () => filteredPosts.filter((post) => post?.featured === true),
     [filteredPosts],
   );
 
@@ -49,16 +51,18 @@ export default function BlogFilters({ posts = [] }) {
     [filteredPosts],
   );
 
-  const paginatedPosts = useMemo(() => {
-    const start = (currentPage - 1) * POSTS_PER_PAGE;
-
-    return normalPosts.slice(start, start + POSTS_PER_PAGE);
-  }, [normalPosts, currentPage]);
-
   const totalPages = Math.max(
     1,
     Math.ceil(normalPosts.length / POSTS_PER_PAGE),
   );
+
+  const safeCurrentPage = Math.min(currentPage, totalPages);
+
+  const paginatedPosts = useMemo(() => {
+    const start = (safeCurrentPage - 1) * POSTS_PER_PAGE;
+
+    return normalPosts.slice(start, start + POSTS_PER_PAGE);
+  }, [normalPosts, safeCurrentPage]);
 
   useEffect(() => {
     setCurrentPage(1);
@@ -70,7 +74,7 @@ export default function BlogFilters({ posts = [] }) {
     }
   }, [currentPage, totalPages]);
 
-  const hasFeaturedSection = currentPage === 1 && featuredPosts.length > 0;
+  const hasFeaturedSection = safeCurrentPage === 1 && featuredPosts.length > 0;
 
   return (
     <div>
@@ -84,7 +88,7 @@ export default function BlogFilters({ posts = [] }) {
 
       <div className="mt-5 flex min-h-6 items-center justify-center">
         {searchTerm.trim() && (
-          <p className="text-sm text-[var(--muted)]" aria-live="polite">
+          <p aria-live="polite" className="text-sm text-[var(--muted)]">
             {filteredPosts.length} {t("results")}
           </p>
         )}
@@ -101,7 +105,7 @@ export default function BlogFilters({ posts = [] }) {
       ) : (
         <>
           {hasFeaturedSection && (
-            <section className="mt-14" aria-labelledby="featured-posts-title">
+            <section aria-labelledby="featured-posts-title" className="mt-14">
               <h2
                 id="featured-posts-title"
                 className="mb-8 text-3xl font-bold text-[var(--primary)]"
@@ -117,15 +121,9 @@ export default function BlogFilters({ posts = [] }) {
             </section>
           )}
 
-          <section
-            className={hasFeaturedSection ? "mt-20" : "mt-14"}
-            aria-labelledby="all-posts-title"
-          >
+          <section className={hasFeaturedSection ? "mt-20" : "mt-14"}>
             <div className="mb-8 flex items-end justify-between gap-4">
-              <h2
-                id="all-posts-title"
-                className="text-3xl font-bold text-[var(--text)]"
-              >
+              <h2 className="text-3xl font-bold text-[var(--text)]">
                 {t("allPosts")}
               </h2>
 
@@ -134,17 +132,11 @@ export default function BlogFilters({ posts = [] }) {
               </span>
             </div>
 
-            {paginatedPosts.length > 0 ? (
-              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                {paginatedPosts.map((post) => (
-                  <BlogCard key={`${post.locale}-${post.slug}`} post={post} />
-                ))}
-              </div>
-            ) : (
-              <div className="rounded-3xl border border-[var(--border)] bg-[var(--card)] p-10 text-center text-[var(--muted)]">
-                {t("noPostsFound")}
-              </div>
-            )}
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {paginatedPosts.map((post) => (
+                <BlogCard key={`${post.locale}-${post.slug}`} post={post} />
+              ))}
+            </div>
           </section>
 
           {totalPages > 1 && (
@@ -152,7 +144,7 @@ export default function BlogFilters({ posts = [] }) {
               <Pagination
                 totalItems={normalPosts.length}
                 itemsPerPage={POSTS_PER_PAGE}
-                currentPage={currentPage}
+                currentPage={safeCurrentPage}
                 setCurrentPage={setCurrentPage}
               />
             </div>

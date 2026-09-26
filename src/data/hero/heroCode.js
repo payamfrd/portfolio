@@ -17,7 +17,7 @@ const code = [
       <>
         <span className="text-[#9CDCFE]">name</span>
         <span className="text-white">:</span>{" "}
-        <span className="text-[#CE9178]">"Mohammadmehdi Fard"</span>
+        <span className="text-[#CE9178]"> &quot;Mohammadmehdi Fard&quot;</span>
         <span className="text-white">,</span>
       </>
     ),
@@ -29,7 +29,7 @@ const code = [
       <>
         <span className="text-[#9CDCFE]">role</span>
         <span className="text-white">:</span>{" "}
-        <span className="text-[#CE9178]">"Frontend Developer"</span>
+        <span className="text-[#CE9178]"> &quot;Frontend Developer&quot;</span>
         <span className="text-white">,</span>
       </>
     ),
@@ -42,9 +42,9 @@ const code = [
         <span className="text-[#9CDCFE]">stack</span>
         <span className="text-white">:</span>{" "}
         <span className="text-white">[</span>
-        <span className="text-[#CE9178]">"React"</span>
+        <span className="text-[#CE9178]">&quot;React&quot;</span>
         <span className="text-white">, </span>
-        <span className="text-[#CE9178]">"Next.js"</span>
+        <span className="text-[#CE9178]"> &quot;Next.js&quot;</span>
         <span className="text-white">]</span>
         <span className="text-white">,</span>
       </>

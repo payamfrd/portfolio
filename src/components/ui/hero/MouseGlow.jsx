@@ -1,19 +1,29 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 
+import { useEffect, useState } from "react";
+
+const DEFAULT_DIAMETER = 280;
+
+function getGlowDiameter(width) {
+  if (width > 1600) return 420;
+  if (width > 1200) return 360;
+
+  return 280;
+}
+
+function getGlowSize(width) {
+  if (width > 1600) return 500;
+  if (width > 1200) return 420;
+
+  return 320;
+}
+
 export default function MouseGlow({ containerRef }) {
-  const getDiameter = () => {
-    if (typeof window === "undefined") return 280;
+  const [glowDiameter, setGlowDiameter] = useState(DEFAULT_DIAMETER);
 
-    if (window.innerWidth > 1600) return 420;
-
-    if (window.innerWidth > 1200) return 360;
-
-    return 280;
-  };
-  const [glowDiameter, setGlowDiameter] = useState(getDiameter);
+  const [mounted, setMounted] = useState(false);
 
   const mouseX = useMotionValue(-500);
   const mouseY = useMotionValue(-500);
@@ -30,33 +40,41 @@ export default function MouseGlow({ containerRef }) {
     mass: 1,
   });
 
+  const accentX = useTransform(x, (value) => value + 20);
+
+  const accentY = useTransform(y, (value) => value + 20);
+
   useEffect(() => {
-    if (window.innerWidth < 768) return;
+    setMounted(true);
+
+    if (window.innerWidth < 768) {
+      return;
+    }
 
     const container = containerRef?.current;
 
-    if (!container) return;
-
-    let glowSize = getGlowSize();
-    function getGlowSize() {
-      if (window.innerWidth > 1600) return 500;
-      if (window.innerWidth > 1200) return 420;
-      return 320;
+    if (!container) {
+      return;
     }
 
-    const getDiameter = () => {
-      if (window.innerWidth > 1600) return 420;
+    let glowSize = getGlowSize(window.innerWidth);
 
-      if (window.innerWidth > 1200) return 360;
+    const updateDimensions = () => {
+      const width = window.innerWidth;
 
-      return 280;
+      glowSize = getGlowSize(width);
+
+      setGlowDiameter(getGlowDiameter(width));
     };
 
-    const handleResize = () => {
-      glowSize = getGlowSize();
+    const handlePointerMove = (event) => {
+      const rect = container.getBoundingClientRect();
 
-      setGlowDiameter(getDiameter());
+      mouseX.set(event.clientX - rect.left - glowSize / 2);
+
+      mouseY.set(event.clientY - rect.top - glowSize / 2);
     };
+
     const handleMouseLeave = () => {
       const rect = container.getBoundingClientRect();
 
@@ -64,68 +82,82 @@ export default function MouseGlow({ containerRef }) {
 
       mouseY.set(rect.height / 2 - glowSize / 2);
     };
-    const handlePointerMove = (e) => {
-      const rect = container.getBoundingClientRect();
 
-      mouseX.set(e.clientX - rect.left - glowSize / 2);
-
-      mouseY.set(e.clientY - rect.top - glowSize / 2);
+    const handleResize = () => {
+      updateDimensions();
     };
 
-    container.addEventListener("pointermove", handlePointerMove);
-    container.addEventListener("mouseleave", handleMouseLeave);
-    container.addEventListener("mouseenter", handlePointerMove);
-    window.addEventListener("resize", handleResize);
+    updateDimensions();
+
+    container.addEventListener("pointermove", handlePointerMove, {
+      passive: true,
+    });
+
+    container.addEventListener("mouseleave", handleMouseLeave, {
+      passive: true,
+    });
+
+    window.addEventListener("resize", handleResize, { passive: true });
 
     return () => {
       container.removeEventListener("pointermove", handlePointerMove);
+
       container.removeEventListener("mouseleave", handleMouseLeave);
-      container.removeEventListener("mouseenter", handlePointerMove);
+
       window.removeEventListener("resize", handleResize);
     };
-  }, [mouseX, mouseY, containerRef]);
+  }, [containerRef, mouseX, mouseY]);
 
-  const accentX = useTransform(x, (v) => v + 20);
+  const glowStyle = {
+    x,
+    y,
+    width: glowDiameter,
+    height: glowDiameter,
+    willChange: mounted ? "transform" : "auto",
+  };
 
-  const accentY = useTransform(y, (v) => v + 20);
+  const accentGlowStyle = {
+    x: accentX,
+    y: accentY,
+    width: glowDiameter,
+    height: glowDiameter,
+    willChange: mounted ? "transform" : "auto",
+  };
 
   return (
     <div
       dir="ltr"
-      className="absolute inset-0 pointer-events-none overflow-hidden z-0"
+      aria-hidden="true"
+      className="
+        pointer-events-none
+        absolute
+        inset-0
+        z-0
+        overflow-hidden
+      "
     >
       <motion.div
-        style={{
-          x,
-          y,
-          width: glowDiameter,
-          height: glowDiameter,
-          willChange: "transform",
-        }}
-        className="
-          absolute       
-          rounded-full
-          blur-[90px]
-          bg-[var(--primary)]
-          opacity-[0.08]
-          mix-blend-screen
-                  "
-      />
-
-      <motion.div
-        style={{
-          x: accentX,
-          y: accentY,
-          width: glowDiameter,
-          height: glowDiameter,
-          willChange: "transform",
-        }}
+        initial={false}
+        style={glowStyle}
         className="
           absolute
           rounded-full
-          blur-[70px]
+          bg-[var(--primary)]
+          opacity-[0.08]
+          blur-[90px]
+          mix-blend-screen
+        "
+      />
+
+      <motion.div
+        initial={false}
+        style={accentGlowStyle}
+        className="
+          absolute
+          rounded-full
           bg-[var(--accent)]
           opacity-[0.10]
+          blur-[70px]
           mix-blend-screen
         "
       />

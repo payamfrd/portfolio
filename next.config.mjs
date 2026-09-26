@@ -30,7 +30,7 @@ const securityHeaders = [
 
   {
     key: "Strict-Transport-Security",
-    value: "max-age=31536000; includeSubDomains",
+    value: "max-age=31536000; includeSubDomains; preload",
   },
 
   {
@@ -64,8 +64,7 @@ const nextConfig = {
   async headers() {
     return [
       {
-        source: "/(.*)",
-
+        source: "/:path*",
         headers: securityHeaders,
       },
     ];

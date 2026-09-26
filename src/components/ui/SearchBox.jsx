@@ -143,7 +143,11 @@ export default function SearchBox({ value = "", onChange, placeholder = "" }) {
       <input
         type="search"
         value={value}
-        onChange={(event) => onChange?.(event.target.value)}
+        onChange={(event) => {
+          if (typeof onChange === "function") {
+            onChange(event.target.value);
+          }
+        }}
         placeholder={placeholder}
         aria-label={placeholder}
         autoComplete="off"

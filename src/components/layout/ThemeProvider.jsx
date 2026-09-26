@@ -6,9 +6,10 @@ export default function ThemeProvider({ children }) {
   return (
     <NextThemesProvider
       attribute="class"
-      defaultTheme="dark"
-      enableSystem={false}
+      defaultTheme="system"
+      enableSystem
       storageKey="portfolio-theme"
+      disableTransitionOnChange
     >
       {children}
     </NextThemesProvider>

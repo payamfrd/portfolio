@@ -7,53 +7,48 @@ import { useTranslations } from "next-intl";
 
 export default function ThemeToggle() {
   const t = useTranslations("theme");
+
   const { resolvedTheme, setTheme } = useTheme();
 
-  const [mount, setMount] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMount(true);
+    setMounted(true);
   }, []);
 
-  if (!mount) return null;
+  if (!mounted) return null;
 
   const isDark = resolvedTheme === "dark";
 
   return (
     <button
+      type="button"
       aria-label={isDark ? t("light") : t("dark")}
       title={isDark ? t("light") : t("dark")}
       onClick={() => setTheme(isDark ? "light" : "dark")}
       className="
-        p-2
-        rounded-xl
-        border
-        border-[var(--border)]
-        bg-[var(--card)]
-        hover:border-[var(--accent)]
-        transition
+      p-2
+      rounded-xl
+      border
+      border-[var(--border)]
+      bg-[var(--card)]
+      hover:border-[var(--accent)]
+      transition
+      focus:outline-none
+      focus:ring-2
+      focus:ring-[var(--primary)]
+      focus:ring-offset-2
       "
     >
       {isDark ? (
         <Sun
           size={18}
-          className="
-            text-[var(--accent)]
-            transition-all
-    duration-300
-    rotate-0
-            
-          "
+          className="text-[var(--accent)] transition-transform duration-300"
         />
       ) : (
         <Moon
           size={18}
-          className="
-            text-[var(--primary)]
-             transition-all
-    duration-300
-            
-          "
+          className="text-[var(--primary)] transition-transform duration-300"
         />
       )}
     </button>

@@ -1,26 +1,22 @@
 export default function PersonSchema() {
+  const siteUrl =
+    process.env.NEXT_PUBLIC_SITE_URL || "https://mohammadmehdifard.ir";
+
   const schema = {
     "@context": "https://schema.org",
     "@type": "Person",
-
-    "@id": `${process.env.NEXT_PUBLIC_SITE_URL}/#person`,
-
+    "@id": `${siteUrl}/#person`,
     name: "Mohammadmehdi Fard",
-
     alternateName: "Payam Fard",
 
-    description: "Front-End Developer specialized in React and Next.js",
+    url: siteUrl,
 
-    nationality: {
-      "@type": "Country",
-      name: "Iran",
-    },
+    image: `${siteUrl}/profile.jpg`,
 
-    url: process.env.NEXT_PUBLIC_SITE_URL,
+    description:
+      "Front-End Developer and Network / IT Specialist specialized in React, Next.js, JavaScript and networking.",
 
-    image: `${process.env.NEXT_PUBLIC_SITE_URL}/profile.jpg`,
-
-    jobTitle: "Front-End Developer",
+    jobTitle: "Front-End Developer & Network / IT Specialist",
 
     knowsAbout: [
       "JavaScript",
@@ -28,7 +24,9 @@ export default function PersonSchema() {
       "Next.js",
       "Frontend Development",
       "Web Development",
+      "SEO",
       "Networking",
+      "IT Infrastructure",
     ],
 
     sameAs: [

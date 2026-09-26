@@ -148,7 +148,7 @@ export default async function LocaleLayout({ children, params }) {
       dir={locale === "fa" ? "rtl" : "ltr"}
       suppressHydrationWarning
     >
-      <body className={locale === "fa" ? "font-vazir" : "font-inter"}>
+      <body className={locale === "fa" ? "font-iransans" : "font-inter"}>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <ThemeProvider>
             <SiteBackground />

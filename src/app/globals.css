@@ -2,6 +2,41 @@
 
 @plugin "@tailwindcss/typography";
 
+/* =========================
+   IRANSans
+   ========================= */
+
+@font-face {
+  font-family: "IRANSans";
+  src: url("../../public/fonts/IRANSans/IRANSansWeb\(FaNum\).woff2")
+    format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IRANSans";
+  src: url("../../public/fonts/IRANSans/IRANSansWeb\(FaNum\)_Medium.woff2")
+    format("woff2");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IRANSans";
+  src: url("../../public/fonts/IRANSans/IRANSansWeb\(FaNum\)_Bold.woff2")
+    format("woff2");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@theme {
+  --font-iransans: "IRANSans", sans-serif;
+}
+
 html {
   scroll-behavior: smooth;
   background: var(--bg);
@@ -49,9 +84,39 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* =========================
+   Global Text Selection
+   ========================= */
+
 ::selection {
-  background: var(--primary);
-  color: white;
+  background: var(--accent);
+  color: #ffffff;
+}
+
+::-moz-selection {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+/* =========================
+   Hide Scrollbar
+   ========================= */
+
+/* Chrome / Edge / Safari */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+/* Firefox */
+html {
+  scrollbar-width: none;
+}
+
+/* IE / old Edge */
+html {
+  -ms-overflow-style: none;
 }
 
 .section-divider {

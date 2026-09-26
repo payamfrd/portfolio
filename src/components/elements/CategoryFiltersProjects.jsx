@@ -60,21 +60,16 @@ export default function CategoryFiltersProjects() {
     filteredProjects.length,
   );
 
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [activeCategory, searchTerm]);
-
-  useEffect(() => {
-    if (currentPage > totalPages) {
-      setCurrentPage(totalPages);
-    }
-  }, [currentPage, totalPages]);
+  const safeCurrentPage = Math.min(currentPage, totalPages);
 
   return (
     <>
       <SearchBox
         value={searchTerm}
-        onChange={setSearchTerm}
+        onChange={(value) => {
+          setSearchTerm(value);
+          setCurrentPage(1);
+        }}
         placeholder={t("searchProjects")}
       />
 

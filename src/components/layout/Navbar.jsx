@@ -24,7 +24,7 @@ const Navbar = () => {
 
   const t = useTranslations("nav");
 
-  const { locale = "en" } = useParams();
+  const { locale = "fa" } = useParams();
 
   const isFa = locale === "fa";
 
@@ -60,6 +60,37 @@ const Navbar = () => {
   `;
   };
 
+  const mobileSectionLinkClass = (section) => {
+    const isActive = isHomePage && activeSection === section;
+
+    return `
+    w-full
+    rounded-xl
+    px-3
+    py-2
+    transition
+    ${
+      isActive
+        ? "bg-[var(--primary)]/10 text-[var(--primary)] font-semibold"
+        : "text-[var(--text)] hover:bg-[var(--bg)] hover:text-[var(--accent)]"
+    }
+  `;
+  };
+
+  const isBlogActive =
+    pathname === `/${locale}/blog` || pathname.startsWith(`/${locale}/blog/`);
+
+  const isContactActive =
+    pathname === `/${locale}/contact` ||
+    pathname.startsWith(`/${locale}/contact/`);
+
+  const isProjectsPage =
+    pathname === `/${locale}/projects` ||
+    pathname.startsWith(`/${locale}/projects/`);
+
+  const isProjectsActive =
+    isProjectsPage || (isHomePage && activeSection === "projects");
+
   useEffect(() => {
     if (isOpen) {
       document.documentElement.style.overflow = "hidden";
@@ -76,15 +107,11 @@ const Navbar = () => {
   }, [isOpen]);
 
   useEffect(() => {
-    if (!isOpen) {
-      setMobileProjectsOpen(false);
-    }
-  }, [isOpen]);
-
-  useEffect(() => {
     const handleEsc = (e) => {
       if (e.key === "Escape") {
         setIsOpen(false);
+        setMobileProjectsOpen(false);
+        setProjectsOpen(false);
       }
     };
 
@@ -93,6 +120,12 @@ const Navbar = () => {
     return () => window.removeEventListener("keydown", handleEsc);
   }, []);
 
+  useEffect(() => {
+    setIsOpen(false);
+    setMobileProjectsOpen(false);
+    setProjectsOpen(false);
+  }, [pathname]);
+
   return (
     <header className="fixed top-0 w-full z-40 border-b border-[var(--border)] bg-[var(--bg)]/90 backdrop-blur max-md:backdrop-blur-xl shadow-[0_1px_0_rgba(0,0,0,.04)] dark:shadow-[0_1px_0_rgba(255,255,255,.04)]">
       <div className="px-3 lg:w-5xl xl:w-7xl mx-auto max-w-7xl lg:px-6 h-16 flex items-center justify-between z-30">
@@ -100,7 +133,10 @@ const Navbar = () => {
           href={`/${locale}/`}
           aria-label={t("logoIcon")}
           className="flex items-center gap-3"
-          onClick={() => setIsOpen(false)}
+          onClick={() => {
+            setIsOpen(false);
+            setMobileProjectsOpen(false);
+          }}
         >
           <Image
             src="/profile.png"
@@ -120,28 +156,37 @@ const Navbar = () => {
           <Link
             href={sectionHref("about")}
             className={sectionLinkClass("about")}
-            onClick={() => setIsOpen(false)}
+            onClick={() => {
+              setIsOpen(false);
+              setMobileProjectsOpen(false);
+            }}
           >
             {t("about")}
           </Link>
           <Link
             href={sectionHref("experience")}
             className={sectionLinkClass("experience")}
-            onClick={() => setIsOpen(false)}
+            onClick={() => {
+              setIsOpen(false);
+              setMobileProjectsOpen(false);
+            }}
           >
             {t("experience")}
           </Link>
           <Link
             href={sectionHref("skills")}
             className={sectionLinkClass("skills")}
-            onClick={() => setIsOpen(false)}
+            onClick={() => {
+              setIsOpen(false);
+              setMobileProjectsOpen(false);
+            }}
           >
             {t("skills")}
           </Link>
           {/* <Link
             href={sectionHref("projects")}
             className={sectionLinkClass("projects")}
-            onClick={() => setIsOpen(false)}
+            onClick={() => {setIsOpen(false);setMobileProjectsOpen(false);}}
           >
             {t("projects")}
           </Link> */}
@@ -152,14 +197,15 @@ const Navbar = () => {
             onMouseLeave={() => setProjectsOpen(false)}
           >
             <button
+              type="button"
               className={`
-    flex items-center gap-1 transition
-    ${
-      activeSection === "projects"
-        ? "text-[var(--primary)] font-semibold"
-        : "hover:text-[var(--accent)]"
-    }
-  `}
+  flex items-center gap-1 transition
+  ${
+    isProjectsActive
+      ? "text-[var(--primary)] font-semibold"
+      : "hover:text-[var(--accent)]"
+  }
+`}
             >
               {t("projects")}
               {isFa ? (
@@ -237,7 +283,10 @@ const Navbar = () => {
           <Link
             href={sectionHref("certificates")}
             className={sectionLinkClass("certificates")}
-            onClick={() => setIsOpen(false)}
+            onClick={() => {
+              setIsOpen(false);
+              setMobileProjectsOpen(false);
+            }}
           >
             {t("certificates")}
           </Link>
@@ -259,6 +308,7 @@ const Navbar = () => {
           <ThemeToggle />
           {/* Mobile Responsive */}
           <button
+            type="button"
             onClick={() => setIsOpen(!isOpen)}
             className={`lg:hidden p-2 z-50  `}
             aria-expanded={isOpen}
@@ -299,28 +349,40 @@ overscroll-contain
             >
               <Link
                 href={sectionHref("about")}
-                onClick={() => setIsOpen(false)}
+                className={mobileSectionLinkClass("about")}
+                onClick={() => {
+                  setIsOpen(false);
+                  setMobileProjectsOpen(false);
+                }}
               >
                 {t("about")}
               </Link>
 
               <Link
                 href={sectionHref("experience")}
-                onClick={() => setIsOpen(false)}
+                className={mobileSectionLinkClass("experience")}
+                onClick={() => {
+                  setIsOpen(false);
+                  setMobileProjectsOpen(false);
+                }}
               >
                 {t("experience")}
               </Link>
 
               <Link
                 href={sectionHref("skills")}
-                onClick={() => setIsOpen(false)}
+                className={mobileSectionLinkClass("skills")}
+                onClick={() => {
+                  setIsOpen(false);
+                  setMobileProjectsOpen(false);
+                }}
               >
                 {t("skills")}
               </Link>
 
               {/* <Link
               href={sectionHref("projects")}
-              onClick={() => setIsOpen(false)}
+              onClick={() => {setIsOpen(false);setMobileProjectsOpen(false);}}
             >
               {t("projects")}
             </Link> */}
@@ -330,7 +392,7 @@ overscroll-contain
 
                 <Link
                   href={sectionHref("projects")}
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => {setIsOpen(false);setMobileProjectsOpen(false);}}
                   className={`
   text-[var(--muted)]
   ${isFa ? "pr-4" : "pl-4"}
@@ -341,7 +403,7 @@ overscroll-contain
 
                 <Link
                   href={`/${locale}/projects`}
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => {setIsOpen(false);setMobileProjectsOpen(false);}}
                   className={`
   text-[var(--muted)]
   ${isFa ? "pr-4" : "pl-4"}
@@ -353,14 +415,24 @@ overscroll-contain
 
               <div className="w-full">
                 <button
+                  type="button"
                   onClick={() => setMobileProjectsOpen(!mobileProjectsOpen)}
                   className={`
-      flex
-      items-center
-      justify-between
-      w-full
-      font-medium
-    `}
+    flex
+    items-center
+    justify-between
+    w-full
+    rounded-xl
+    px-3
+    py-2
+    font-medium
+    transition
+    ${
+      isProjectsActive
+        ? "bg-[var(--primary)]/10 text-[var(--primary)]"
+        : "text-[var(--text)] hover:bg-[var(--bg)] hover:text-[var(--accent)]"
+    }
+  `}
                 >
                   <span>{t("projects")}</span>
 
@@ -427,18 +499,55 @@ overscroll-contain
 
               <Link
                 href={sectionHref("certificates")}
-                onClick={() => setIsOpen(false)}
+                className={mobileSectionLinkClass("certificates")}
+                onClick={() => {
+                  setIsOpen(false);
+                  setMobileProjectsOpen(false);
+                }}
               >
                 {t("certificates")}
               </Link>
 
-              <Link href={`/${locale}/blog`} onClick={() => setIsOpen(false)}>
+              <Link
+                href={`/${locale}/blog`}
+                className={`
+    w-full
+    rounded-xl
+    px-3
+    py-2
+    transition
+    ${
+      isBlogActive
+        ? "bg-[var(--primary)]/10 text-[var(--primary)] font-semibold"
+        : "text-[var(--text)] hover:bg-[var(--bg)] hover:text-[var(--accent)]"
+    }
+  `}
+                onClick={() => {
+                  setIsOpen(false);
+                  setMobileProjectsOpen(false);
+                }}
+              >
                 {t("blog")}
               </Link>
 
               <Link
                 href={`/${locale}/contact`}
-                onClick={() => setIsOpen(false)}
+                className={`
+    w-full
+    rounded-xl
+    px-3
+    py-2
+    transition
+    ${
+      isContactActive
+        ? "bg-[var(--primary)]/10 text-[var(--primary)] font-semibold"
+        : "text-[var(--text)] hover:bg-[var(--bg)] hover:text-[var(--accent)]"
+    }
+  `}
+                onClick={() => {
+                  setIsOpen(false);
+                  setMobileProjectsOpen(false);
+                }}
               >
                 {t("contact")}
               </Link>
