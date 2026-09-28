@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { useParams } from "next/navigation";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
@@ -11,10 +11,104 @@ export default function Pagination({
   setCurrentPage,
 }) {
   const params = useParams();
-
   const isPersian = params?.locale === "fa";
 
-  const totalPages = Math.ceil(totalItems / itemsPerPage);
+  const safeItemsPerPage =
+    Number.isFinite(itemsPerPage) && itemsPerPage > 0 ? itemsPerPage : 1;
+
+  const safeTotalItems =
+    Number.isFinite(totalItems) && totalItems > 0 ? totalItems : 0;
+
+  const totalPages = Math.max(1, Math.ceil(safeTotalItems / safeItemsPerPage));
+
+  const hasRestoredFromUrl = useRef(false);
+
+  /*
+   * Restore the current page from the URL once the pagination
+   * data is available.
+   *
+   * Example:
+   * /fa/blog?page=2
+   * /en/blog?page=2
+   */
+  useEffect(() => {
+    if (hasRestoredFromUrl.current) {
+      return;
+    }
+
+    if (safeTotalItems <= 0 || typeof setCurrentPage !== "function") {
+      return;
+    }
+
+    const url = new URL(window.location.href);
+    const pageParam = Number(url.searchParams.get("page"));
+
+    if (
+      Number.isInteger(pageParam) &&
+      pageParam >= 1 &&
+      pageParam <= totalPages
+    ) {
+      setCurrentPage(pageParam);
+    }
+
+    hasRestoredFromUrl.current = true;
+  }, [safeTotalItems, totalPages, setCurrentPage]);
+
+  /*
+   * Keep the URL synchronized with the controlled pagination state.
+   *
+   * Page 1 is kept clean:
+   * /fa/blog
+   *
+   * Other pages use:
+   * /fa/blog?page=2
+   */
+  useEffect(() => {
+    if (!hasRestoredFromUrl.current) {
+      return;
+    }
+
+    if (typeof setCurrentPage !== "function") {
+      return;
+    }
+
+    const normalizedCurrentPage = Math.min(
+      Math.max(Number.isInteger(currentPage) ? currentPage : 1, 1),
+      totalPages,
+    );
+
+    if (normalizedCurrentPage !== currentPage) {
+      setCurrentPage(normalizedCurrentPage);
+      return;
+    }
+
+    const url = new URL(window.location.href);
+    const currentUrlPage = Number(url.searchParams.get("page"));
+
+    if (normalizedCurrentPage <= 1) {
+      if (url.searchParams.has("page")) {
+        url.searchParams.delete("page");
+
+        window.history.replaceState(
+          window.history.state,
+          "",
+          `${url.pathname}${url.search}${url.hash}`,
+        );
+      }
+
+      return;
+    }
+
+    if (currentUrlPage !== normalizedCurrentPage) {
+      url.searchParams.set("page", String(normalizedCurrentPage));
+
+      window.history.replaceState(
+        window.history.state,
+        "",
+        `${url.pathname}${url.search}${url.hash}`,
+      );
+    }
+  }, [currentPage, totalPages, setCurrentPage]);
 
   const visiblePages = useMemo(() => {
     if (totalPages <= 7) {
@@ -57,7 +151,12 @@ export default function Pagination({
   const NextIcon = isPersian ? FaChevronLeft : FaChevronRight;
 
   const goToPage = (page) => {
-    if (page < 1 || page > totalPages || page === currentPage) {
+    if (
+      !Number.isInteger(page) ||
+      page < 1 ||
+      page > totalPages ||
+      page === currentPage
+    ) {
       return;
     }
 
@@ -116,14 +215,14 @@ export default function Pagination({
               key={`ellipsis-${index}`}
               aria-hidden="true"
               className="
-                  flex
-                  h-10
-                  min-w-10
-                  items-center
-                  justify-center
-                  px-2
-                  text-[var(--muted)]
-                "
+                flex
+                h-10
+                min-w-10
+                items-center
+                justify-center
+                px-2
+                text-[var(--muted)]
+              "
             >
               ...
             </span>
@@ -135,28 +234,28 @@ export default function Pagination({
               aria-current={currentPage === page ? "page" : undefined}
               aria-label={isPersian ? `صفحه ${page}` : `Page ${page}`}
               className={`
-                  inline-flex
-                  h-10
-                  min-w-10
-                  items-center
-                  justify-center
-                  rounded-xl
-                  px-3
-                  text-sm
-                  font-medium
-                  transition-all
-                  duration-300
-                  focus-visible:outline-none
-                  focus-visible:ring-2
-                  focus-visible:ring-[var(--primary)]
-                  focus-visible:ring-offset-2
-                  focus-visible:ring-offset-[var(--bg)]
-                  ${
-                    currentPage === page
-                      ? "scale-105 bg-[var(--primary)] text-white shadow-lg"
-                      : "border border-[var(--border)] text-[var(--text)] hover:border-[var(--primary)] hover:text-[var(--primary)]"
-                  }
-                `}
+                inline-flex
+                h-10
+                min-w-10
+                items-center
+                justify-center
+                rounded-xl
+                px-3
+                text-sm
+                font-medium
+                transition-all
+                duration-300
+                focus-visible:outline-none
+                focus-visible:ring-2
+                focus-visible:ring-[var(--primary)]
+                focus-visible:ring-offset-2
+                focus-visible:ring-offset-[var(--bg)]
+                ${
+                  currentPage === page
+                    ? "scale-105 bg-[var(--primary)] text-white shadow-lg"
+                    : "border border-[var(--border)] text-[var(--text)] hover:border-[var(--primary)] hover:text-[var(--primary)]"
+                }
+              `}
             >
               {page}
             </button>
