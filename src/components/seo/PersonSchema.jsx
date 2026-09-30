@@ -7,7 +7,12 @@ export default function PersonSchema() {
     "@type": "Person",
     "@id": `${siteUrl}/#person`,
     name: "Mohammadmehdi Fard",
-    alternateName: "Payam Fard",
+    alternateName: [
+      "Mohammad Mehdi Fard",
+      "Payam Fard",
+      "محمدمهدی فرد",
+      "پیام فرد",
+    ],
 
     url: siteUrl,
 
