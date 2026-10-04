@@ -103,7 +103,7 @@ const projects = [
     category: "networkAndSecurity",
     year: "2026",
     status: "completed",
-    image: null,
+    image: "/projects/pasargad-100.webp",
     icon: "cctv",
     technologies: [
       "CCTV",

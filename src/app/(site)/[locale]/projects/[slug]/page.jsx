@@ -3,12 +3,36 @@ import { notFound } from "next/navigation";
 
 import { getTranslations } from "next-intl/server";
 
-import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
+import { FaAward, FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 
 import projects from "@/data/projects/projects";
 
 import Breadcrumb from "@/components/ui/Breadcrumb";
 import ProjectCard from "@/components/ui/ProjectCard";
+
+import {
+  FaBuilding,
+  FaCar,
+  FaCode,
+  FaCogs,
+  FaIndustry,
+  FaShoppingCart,
+  FaTachometerAlt,
+  FaVideo,
+  FaWallet,
+} from "react-icons/fa";
+
+const PROJECT_ICONS = {
+  building: FaBuilding,
+  factory: FaIndustry,
+  code: FaCode,
+  cctv: FaVideo,
+  shopping: FaShoppingCart,
+  finance: FaWallet,
+  dashboard: FaTachometerAlt,
+  car: FaCar,
+  contacts: FaCogs,
+};
 
 export async function generateMetadata({ params }) {
   const { slug, locale } = await params;
@@ -41,6 +65,9 @@ export default async function ProjectPage({ params }) {
   if (!project) {
     notFound();
   }
+
+  const hasImage = Boolean(project.image);
+  const ProjectIcon = PROJECT_ICONS[project.icon] ?? PROJECT_ICONS.code;
 
   const t = await getTranslations("projectsData");
 
@@ -144,32 +171,43 @@ export default async function ProjectPage({ params }) {
           </p>
         </header>
 
-        <figure
-          className="
-            relative
-            mt-12
-            aspect-[16/10]
-            w-full
-            overflow-hidden
-            rounded-3xl
-            border
-            border-[var(--border)]
-            bg-[var(--card)]
-          "
-        >
-          <Image
-            src={project.image || "/projects/placeholder.webp"}
-            alt={projectTitle}
-            fill
-            priority
-            sizes="
+        <div className=" pt-3 sm:pt-6">
+          <figure
+            className="
+        relative
+        mt-12
+        aspect-[16/10]
+        w-full
+        overflow-hidden
+        rounded-3xl
+        border
+        border-[var(--border)]
+        bg-[var(--card)]
+      "
+          >
+            {hasImage ? (
+              <Image
+                src={project.image}
+                alt={projectTitle}
+                fill
+                priority
+                sizes="
               (max-width: 640px) 100vw,
               (max-width: 1280px) 90vw,
               1200px
             "
-            className="object-cover"
-          />
-        </figure>
+                className="object-cover"
+              />
+            ) : (
+              <div
+                className="flex h-full items-center justify-center bg-[var(--bg)] text-[var(--muted)]"
+                aria-hidden="true"
+              >
+                <ProjectIcon className="fill-[var(--accent)] text-5xl sm:text-8xl" />
+              </div>
+            )}
+          </figure>
+        </div>
 
         <section aria-labelledby="project-technologies" className="mt-10">
           <h2
