@@ -128,7 +128,7 @@ export default function CTA() {
                   rounded-xl
                   border
                   border-[var(--border)]
-                  bg-[var(--bg)]
+                  bg-[var(--whtapp)]
                   px-6
                   py-3
                   font-semibold
@@ -137,7 +137,7 @@ export default function CTA() {
                   duration-300
                   hover:-translate-y-1
                   hover:border-green-500
-                  hover:bg-green-500
+                  hover:bg-green-700
                   hover:text-white
                   focus-visible:outline-none
                   focus-visible:ring-2
