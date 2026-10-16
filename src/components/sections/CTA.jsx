@@ -104,7 +104,7 @@ export default function CTA() {
                   transition-all
                   duration-300
                   hover:-translate-y-1
-                  hover:bg-[var(--accent)]
+                  hover:bg-[var(--primary)]/95
                   focus-visible:outline-none
                   focus-visible:ring-2
                   focus-visible:ring-[var(--primary)]
@@ -126,19 +126,19 @@ export default function CTA() {
                   items-center
                   justify-center
                   rounded-xl
-                  border
-                  border-[var(--border)]
-                  bg-[var(--whtapp)]
+                  border border-green-600
+
+                  text-green-700 hover:bg-green-600 hover:text-white
+
+                  dark:text-green-400 dark:hover:text-white
                   px-6
                   py-3
                   font-semibold
-                  text-[var(--text)]
+                 
                   transition-all
                   duration-300
                   hover:-translate-y-1
-                  hover:border-green-500
-                  hover:bg-green-700
-                  hover:text-white
+                 
                   focus-visible:outline-none
                   focus-visible:ring-2
                   focus-visible:ring-green-500
